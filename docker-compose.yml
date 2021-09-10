@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+    server :
+        build: ./server/
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.backend.rule=Host(`backend.localhost`)"
+            - "traefik.http.routers.backend.entrypoints=web"
+            - "traefik.port=8000"
+        environment:
+            - DATABASE_PASSWORD=1234
+            - DATABASE_HOST=db
+            - DATABASE_TABLE=babyelefant
+        depends_on:
+            - "db"
+    db:
+        image: 'timescale/timescaledb:latest-pg12'
+        environment:
+            - POSTGRES_USER=babyelefant
+            - POSTGRES_PASSWORD=1234
+        volumes:
+            - ./server/init.sql:/docker-entrypoint-initdb.d/init.sql
+    frontend:
+        build: './frontend/'
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.frontend.rule=Host(`babyelefant.localhost`)"
+            - "traefik.http.routers.frontend.entrypoints=web"
+        environment:
+            - VUE_APP_API_URL=http://server:8000/api
+    traefik:
+        image: "traefik:v2.5"
+        container_name: "traefik"
+        command:
+          #- "--log.level=DEBUG"
+          - "--api.insecure=true"
+          - "--providers.docker=true"
+          - "--providers.docker.exposedbydefault=false"
+          - "--entrypoints.web.address=:80"
+        ports:
+          - "80:80"
+          - "8080:8080"
+        volumes:
+          - "/var/run/docker.sock:/var/run/docker.sock:ro"
