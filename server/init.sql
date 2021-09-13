@@ -126,6 +126,9 @@ INSERT INTO public.e_events
 (e_id, e_name, e_u_user, e_adress)
 VALUES(1, 'Test', 1, 'Test 1');
 
+/* INSERT INTO public.c_cameras
+(c_link, c_e_event, c_homography, c_maxdistance, c_pixelpermeter, c_public, c_downtime_start, c_downtime_end)
+VALUES('https://www.youtube.com/watch?v=PGrq-2mju2s', 1, '{"matrix": [[0, 0, 0], [0, 0, 0], [0, 0, 0]]}'::jsonb, 2, -1, true, '20:00', '06:00'); */
 INSERT INTO public.c_cameras
 (c_link, c_e_event, c_homography, c_maxdistance, c_pixelpermeter, c_public, c_downtime_start, c_downtime_end)
-VALUES('https://www.youtube.com/watch?v=PGrq-2mju2s', 1, '{"matrix": [[0, 0, 0], [0, 0, 0], [0, 0, 0]]}'::jsonb, 2, -1, true, '20:00', '06:00');
+VALUES('0', 1, '{"matrix": [[0, 0, 0], [0, 0, 0], [0, 0, 0]]}'::jsonb, 2, -1, true, '20:00', '06:00');

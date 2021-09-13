@@ -37,6 +37,7 @@ class Schedule:
         self.link = link
         self.downtime_start = datetime.strptime(downtime_start, "%H:%M").time()
         self.downtime_end = datetime.strptime(downtime_end, "%H:%M").time()
+        self.stream_mode = "youtube.com" in self.link
 
         self.deepsort = DeepSort(
             "ai/deep_sort_pytorch/deep_sort/deep/checkpoint/ckpt.t7",
@@ -54,7 +55,7 @@ class Schedule:
             try:
                 if self.link == "0":
                     self.link = 0
-                self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, logging=True, stream_mode=("youtube.com" in self.link)).start()
+                self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, logging=True, stream_mode=self.stream_mode).start()
 
                 # init cache to show when starting a stream
                 image = self.video.read()
@@ -79,7 +80,7 @@ class Schedule:
     def setLink(self, link):
         if link != self.link:
             self.link = link
-            self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, logging=True, stream_mode=("youtube.com" in self.link)).start()
+            self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, logging=True, stream_mode=self.stream_mode).start()
 
     def getIds(self, det, image):
         if det is not None and len(det):
@@ -118,7 +119,7 @@ class Schedule:
             image = self.video.read()
             
             if image is None:
-                self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, logging=True, stream_mode=("youtube.com" in self.link)).start()
+                self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, logging=True, stream_mode=self.stream_mode).start()
             else:
                 self.internal_cache = image
                 

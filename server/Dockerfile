@@ -10,5 +10,7 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
+RUN usermod -a -G video root
+
 EXPOSE 8000
 CMD [ "python3", "main.py"]
