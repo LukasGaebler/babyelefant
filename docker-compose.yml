@@ -15,6 +15,7 @@ services:
             - "db"
         devices:
             - "/dev/video0:/dev/video0"
+        runtime: nvidia
     db:
         image: 'timescale/timescaledb:latest-pg12'
         environment:
