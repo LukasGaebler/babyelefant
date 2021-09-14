@@ -1,4 +1,4 @@
-FROM python:3.9.7-buster
+FROM pytorch/pytorch:1.7.1-cuda11.0-cudnn8-runtime
 
 WORKDIR /app
 
