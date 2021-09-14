@@ -14,7 +14,7 @@ services:
         depends_on:
             - "db"
         devices:
-            - "/dev/video2:/dev/video0"
+            - "/dev/video0:/dev/video0"
     db:
         image: 'timescale/timescaledb:latest-pg12'
         environment:

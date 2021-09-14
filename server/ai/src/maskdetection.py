@@ -8,7 +8,6 @@ import torchvision.ops.boxes as bops
 from utils.torch_utils import select_device
 from models.experimental import attempt_load
 
-
 class MaskDetection:
     """AI mask detection with distance measurement
     """

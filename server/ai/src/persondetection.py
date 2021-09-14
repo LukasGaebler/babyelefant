@@ -33,6 +33,7 @@ class PersonDetection:
         # if self.half:
         # for img in imageArray:
         #   img.half()
+        imageArray = imageArray.to(ipex.DEVICE)
         pred = self.model(imageArray)
         res = [[] if v is None else v for v in pred.pred]
         return res
