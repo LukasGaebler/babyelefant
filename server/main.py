@@ -159,6 +159,7 @@ with app.app_context():
                 camera['c_downtime_start'],
                 camera['c_downtime_end'],
                 deepsort_model)
+            logger.debug('Succesfully initialized schedule for camera id: {id}', id=camera['c_id'])
         except ValueError:
             logger.error("Error occured while creating camera with id: {id}",id=camera['c_id'])
             
@@ -168,6 +169,7 @@ with app.app_context():
 def evaluateImagesLoop():
     logger.info('Starting evaluation loop')
     while True:
+        logger.info('EVAL')
         evaluateImages()
         time.sleep(0.1)
 

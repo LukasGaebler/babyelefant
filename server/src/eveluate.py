@@ -1,7 +1,7 @@
 from ai.src.persondetection import PersonDetection
 from ai.src.maskdetection import MaskDetection
 import model
-from model.Contacts import Contacts
+from model.DistanceData import DistanceData
 import cv2
 import numpy as np
 import datetime
@@ -31,9 +31,9 @@ def evaluateImages():
 
     for i, result in enumerate(results):
         schedule = schedules[evaluateIds[i]]
-        ids = schedule.getIds(result[0], evaluate[i])
+        #ids = schedule.getIds(result[0], evaluate[i])
         distances, boxes = personDetection.calculateDistances(
-            schedule.matrix, result[0], ids, schedule.maxdistance, float(
+            schedule.matrix, result[0], None, schedule.maxdistance, float(
                 schedule.pixelpermeter))
 
         #boxes = maskDetection.merge_with_boxes(boxes, result[1])
@@ -57,17 +57,7 @@ def evaluateImages():
 def addDistanceToDatabase(distances, camera_id):
     contactCache = []
     for distance in distances:
-        if distance['id1'] is not None and distance['id2'] is not None:
-            contact = Contacts(
-                co_p_person1=distance['id1'].item(),
-                co_p_person2=distance['id2'].item(),
-                co_distance=distance['distance'],
-                co_camera=camera_id,
-                co_datetime=datetime.datetime.utcnow(),
-                co_p_person1_mask=distance.get('mask_box1') == 1 if distance.get(
-                    'mask_box1') is not None else None,
-                co_p_person2_mask=distance.get('mask_box2') == 1 if distance.get('mask_box2') is not None else None)
-            contactCache.append(contact)
+        print(distance)
     # for distance in distances:
     with db.app.app_context():
         db.session.add_all(contactCache)

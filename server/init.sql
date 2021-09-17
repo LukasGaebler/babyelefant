@@ -75,7 +75,7 @@ CREATE INDEX co_contacts2_co_datetime_idx ON public.co_contacts USING btree (co_
 
 select create_hypertable('co_contacts', 'co_datetime', 'co_id', 3, chunk_time_interval => interval '1 day' );
 
-CREATE MATERIALIZED  VIEW d_distancedata WITH (timescaledb.continuous) as
+/* CREATE MATERIALIZED  VIEW d_distancedata WITH (timescaledb.continuous) as
  SELECT time_bucket('00:05:00'::interval, co_contacts.co_datetime) AS d_datetime,
     avg(co_contacts.co_distance) AS d_avg,
     min(co_contacts.co_distance) AS d_min,
@@ -105,15 +105,23 @@ CREATE MATERIALIZED  VIEW d_distancedata WITH (timescaledb.continuous) as
 SELECT add_continuous_aggregate_policy('d_distancedata',
     start_offset => INTERVAL '4 h',
     end_offset => INTERVAL '1 h',
-    schedule_interval => INTERVAL '1 h');
+    schedule_interval => INTERVAL '1 h'); */
     
+CREATE TABLE public.d_distancedata (
+	d_min numeric(10,2) NOT NULL,
+	d_avg numeric(10,2) NOT NULL,
+	d_numberofpeople int4 NOT NULL,
+	d_c_id int4 NOT NULL,
+    d_datetime timestamptz not null,
+    d_maskedpeople int4 NOT NULL 
+);
+
 create view d_distancedataperevent as  SELECT d_distancedata.d_datetime,
     avg(d_distancedata.d_avg) AS d_avg,
     min(d_distancedata.d_min) AS d_min,
-    max(d_distancedata.d_max) AS d_max,
     sum(d_distancedata.d_numberofpeople) AS d_numberofpeople,
     c_cameras.c_e_event AS d_e_event,
-    avg(d_distancedata.d_maskratio) AS d_maskratio
+    sum(d_distancedata.d_maskedpeople) AS d_maskedpeople
    FROM d_distancedata
      JOIN c_cameras ON d_distancedata.d_c_id = c_cameras.c_id
   GROUP BY c_cameras.c_e_event, d_distancedata.d_datetime;

@@ -16,6 +16,8 @@ services:
         devices:
             - "/dev/video0:/dev/video0"
         runtime: nvidia
+        environment: 
+            - PYTHONUNBUFFERED=1
     db:
         image: 'timescale/timescaledb:latest-pg12'
         environment:

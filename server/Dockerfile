@@ -13,4 +13,4 @@ COPY . .
 RUN usermod -a -G video root
 
 EXPOSE 8000
-CMD [ "python3", "main.py"]
+CMD [ "python3","-u", "main.py"]

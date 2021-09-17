@@ -12,8 +12,10 @@ from ai.scalenet_calibration.utils.utils_misc import *
 from PIL import Image, ImageDraw
 from ai.scalenet_calibration.ImageList import to_image_list
 from ai.scalenet_calibration.dataset_cvpr import bins2roll, bins2vfov, bins2horizon, bins2pitch
+from utils.torch_utils import select_device
 
 #from ai.scalenet_calibration.utils.checkpointer import DetectronCheckpointer
+
 
 
 class RCNN_only(nn.Module):
@@ -36,9 +38,11 @@ class RCNN_only(nn.Module):
         self.printer = printer
         self.rank = rank
 
-        self.model = torch.jit.load('ai/traced/parameter_estimination.pt')
+        self.device = select_device()
+
+        self.model = torch.jit.load('ai/traced/parameter_estimination.pt').to(self.device)
        
-        self.device = self.cfg.MODEL.DEVICE
+        #self.device = self.cfg.MODEL.DEVICE
         self.rank = rank
         self.cpu_device = torch.device("cpu")
         # self.transforms = self.build_transform()
@@ -65,6 +69,8 @@ class RCNN_only(nn.Module):
         :return:
         """
         im_ori_RGB = Image.fromarray(cv2.cvtColor(cv2_image, cv2.COLOR_BGR2RGB))
+
+        im_ori_RGB = im_ori_RGB.to(self.device)
 
         # im_ori_RGB = Image.open(test_image_path).convert(
         #   'RGB')  # im_ori_RGB.size: [W, H]

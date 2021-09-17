@@ -33,7 +33,7 @@ class PersonDetection:
         # if self.half:
         # for img in imageArray:
         #   img.half()
-        imageArray = imageArray.to(ipex.DEVICE)
+        #imageArray = imageArray.to(device)
         pred = self.model(imageArray)
         res = [[] if v is None else v for v in pred.pred]
         return res
@@ -50,21 +50,21 @@ class PersonDetection:
 
         for *box, conf, predclass in predictions:
             if predclass == 0:
-                personId = None
-                for i, idbox in enumerate(ids):
+                #personId = None
+                """ for i, idbox in enumerate(ids):
                     overlap = max(box[0], idbox[0]) - min(box[2], idbox[2])
                     if overlap > 0.8:
                         ids = np.delete(ids, i, 0)
                         personId = idbox[4]
-                        break
+                        break """
 
                 measurePoint = [(box[0] + box[2]) / 2,
                                 box[3]]
                 transPoint = compute_point_perspective_transformation(matrix, [
                     measurePoint])
                 distances.append(
-                    {"box": box, "point": transPoint[0], "id": personId})
-                boxes.append({"box": box, "id": personId})
+                    {"box": box, "point": transPoint[0]})
+                boxes.append({"box": box})
 
         output = []
 
@@ -76,9 +76,7 @@ class PersonDetection:
             if distance < min_distance:
                 output.append({"box1": pair[0]['box'],
                                "box2": pair[1]['box'],
-                               "distance": distance,
-                               "id1": pair[0]['id'],
-                               "id2": pair[1]['id']})
+                               "distance": distance})
 
         return output, boxes
 
