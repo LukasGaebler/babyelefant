@@ -12,7 +12,7 @@ from ai.scalenet_calibration.utils.utils_misc import *
 from PIL import Image, ImageDraw
 from ai.scalenet_calibration.ImageList import to_image_list
 from ai.scalenet_calibration.dataset_cvpr import bins2roll, bins2vfov, bins2horizon, bins2pitch
-from utils.torch_utils import select_device
+from ai.pt.utils.torch_utils import select_device
 
 #from ai.scalenet_calibration.utils.checkpointer import DetectronCheckpointer
 
@@ -39,8 +39,9 @@ class RCNN_only(nn.Module):
         self.rank = rank
 
         self.device = select_device()
+        self.device = torch.device("cpu")
 
-        self.model = torch.jit.load('ai/traced/parameter_estimination.pt').to(self.device)
+        self.model = torch.jit.load('ai/traced/parameter_estimination.pt',map_location=self.device)
        
         #self.device = self.cfg.MODEL.DEVICE
         self.rank = rank
@@ -70,11 +71,13 @@ class RCNN_only(nn.Module):
         """
         im_ori_RGB = Image.fromarray(cv2.cvtColor(cv2_image, cv2.COLOR_BGR2RGB))
 
-        im_ori_RGB = im_ori_RGB.to(self.device)
+        #im_ori_RGB = im_ori_RGB.to(self.device)
 
         # im_ori_RGB = Image.open(test_image_path).convert(
         #   'RGB')  # im_ori_RGB.size: [W, H]
         im = self.eval_trnfs_maskrcnn(im_ori_RGB)
+
+
         H_num, W_num = im_ori_RGB.size
         list_of_oneLargeBbox_list_cpu = model_utils.oneLargeBboxList([W_num], [
                                                                     H_num])
@@ -91,6 +94,9 @@ class RCNN_only(nn.Module):
         rois = convert_to_roi_format(list_of_oneLargeBbox_list)
 
         images = images.tensors
+
+        images = images.to(self.device)
+        rois = rois.to(self.device)
 
         output_horizon,output_pitch,output_roll,output_vfov = self.model(images,rois)
 

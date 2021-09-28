@@ -49,12 +49,13 @@ class MaskDetection:
 
     def merge_with_distances(self, distances, predictions):
         for *box2, conf, predclass in predictions:
+            box2_tensor = torch.tensor([box2])
             for box in distances:
                 for name in ['box1', 'box2']:
                     box1 = box[name]
                     # overlap = (min(box1[0], box2[0]) - max(box1[2], box2[2])) * \
                     #   (min(box1[1], box2[1]) - max(box1[3], box2[3]))
-                    if bops.box_iou(torch.tensor([box1]), torch.tensor([box2])) > 0.9:
+                    if bops.box_iou(torch.tensor([box1]), box2_tensor) > 0.9:
                         box['mask_' + name] = predclass.item()  # 1 = mask
 
         return distances

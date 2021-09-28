@@ -54,7 +54,6 @@ app.config['SECRET_KEY'] = SECRET_KEY
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['JWT_TOKEN_LOCATION'] = ['query_string', 'headers']
 
-print(app.config['SQLALCHEMY_DATABASE_URI'])
 
 class InterceptHandler(logging.Handler):
     def emit(self, record):
@@ -165,11 +164,9 @@ with app.app_context():
             
     logger.info('Finished initializing schedules')
 
-
 def evaluateImagesLoop():
     logger.info('Starting evaluation loop')
     while True:
-        logger.info('EVAL')
         evaluateImages()
         time.sleep(0.1)
 

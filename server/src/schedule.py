@@ -5,7 +5,7 @@ from threading import Thread
 import pafy
 import torch
 from time import sleep
-from ai.deep_sort_pytorch.deep_sort import DeepSort
+#from ai.deep_sort_pytorch.deep_sort import DeepSort
 from datetime import datetime
 from vidgear.gears import CamGear
 import base64
@@ -39,7 +39,7 @@ class Schedule:
         self.downtime_end = datetime.strptime(downtime_end, "%H:%M").time()
         self.stream_mode = "youtube.com" in self.link
 
-        self.deepsort = DeepSort(
+        """ self.deepsort = DeepSort(
             "ai/deep_sort_pytorch/deep_sort/deep/checkpoint/ckpt.t7",
             max_dist=0.2,
             min_confidence=0.3,
@@ -49,7 +49,7 @@ class Schedule:
             n_init=3,
             nn_budget=100,
             use_cuda=True,
-            model=deepsort_model)
+            model=deepsort_model) """
 
         if self.link is not None:
             try:
@@ -82,7 +82,7 @@ class Schedule:
             self.link = link
             self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, logging=True, stream_mode=self.stream_mode).start()
 
-    def getIds(self, det, image):
+    """ def getIds(self, det, image):
         if det is not None and len(det):
             bbox_xywh = []
             confs = []
@@ -107,7 +107,7 @@ class Schedule:
                         np.array(image), cv2.COLOR_RGB2BGR))
                 return outputs
         else:
-            self.deepsort.increment_ages()
+            self.deepsort.increment_ages() """
 
 
     def __del__(self):

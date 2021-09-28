@@ -1,11 +1,12 @@
 import cv2
 import numpy as np
 import torch
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import itertools
 import math
 from utils.torch_utils import select_device
 from models.experimental import attempt_load
+import torchvision.ops.boxes as bops
 
 device = select_device()
 
@@ -44,12 +45,20 @@ class PersonDetection:
             predictions,
             ids,
             min_distance,
-            pixelpermeter):
+            pixelpermeter,
+            masks):
         distances = []
         boxes = []
 
+        masks_tensor = []
+
+        for *box, conf, predclass in predictions:
+             masks_tensor.append([torch.tensor([box]),predclass.item()])
+
         for *box, conf, predclass in predictions:
             if predclass == 0:
+                mask = None
+                box_tensor = torch.tensor([box])
                 #personId = None
                 """ for i, idbox in enumerate(ids):
                     overlap = max(box[0], idbox[0]) - min(box[2], idbox[2])
@@ -58,12 +67,17 @@ class PersonDetection:
                         personId = idbox[4]
                         break """
 
+                for item in masks_tensor:
+                    if bops.box_iou(item[0], box_tensor) > 0.9:
+                        mask = item[1]
+                        break
+
                 measurePoint = [(box[0] + box[2]) / 2,
                                 box[3]]
                 transPoint = compute_point_perspective_transformation(matrix, [
                     measurePoint])
                 distances.append(
-                    {"box": box, "point": transPoint[0]})
+                    {"box": box, "point": transPoint[0], "mask": mask})
                 boxes.append({"box": box})
 
         output = []
@@ -76,13 +90,24 @@ class PersonDetection:
             if distance < min_distance:
                 output.append({"box1": pair[0]['box'],
                                "box2": pair[1]['box'],
-                               "distance": distance})
+                               "distance": distance,
+                               "mask_box1": pair[0]['mask'],
+                               "mask_box2": pair[1]['mask']})
 
         return output, boxes
 
-    def drawBoxes(self, image, distances, boxes):
+    def drawBoxes(self, image, distances, boxes, masks):
         font = ImageFont.truetype("arial.ttf", 20)
         alreadyDrawn = []
+
+        for *box, conf, predclass in masks:
+            mask = Image.new('L', image.size, 0)
+            draw = ImageDraw.Draw(mask)
+            draw.rectangle([ (box[0],box[1]), (box[2],box[3]) ], fill=255)
+            blurred = image.filter(ImageFilter.GaussianBlur(50))
+            image.paste(blurred, mask=mask)
+            #ImageDraw.Draw(image).rectangle(box, fill=(
+            #        255, 0, 0, 255))
 
         width, height = image.size
 
@@ -120,17 +145,7 @@ class PersonDetection:
                         ImageDraw.Draw(image).rectangle(distance[name], fill=(
                             255, 0, 0, 255))
                         alreadyDrawn.append(distance[name])
-            # if distance['box2'] not in alreadyDrawn:
-            #     ImageDraw.Draw(image).rectangle(distance['box2'], fill=(
-            #         255, 0, 0, 255))
-            #     alreadyDrawn.append(distance['box2'])
 
-            # fontWidth = font.getsize(
-            #     str(round(distance['distance'], 2)))[0] / 2
-
-            # ImageDraw.Draw(image).text(
-            #     ((((box1Middle[0] + box2Middle[0]) / 2) - fontWidth / 2),
-            #      ((box1Middle[1] + box2Middle[1]) / 2)), str(round(distance['distance'], 2)), fill="black", font=font)
 
         for box in boxes:
             if box['box'] not in alreadyDrawn and (
@@ -138,17 +153,6 @@ class PersonDetection:
                 ImageDraw.Draw(image).rectangle(box['box'], fill=(
                     0, 255, 0, 255))
                 alreadyDrawn.append(box['box'])
-
-            # if box['id'] is not None:
-            #     fontWidth = font.getsize(str(box['id']))[0] / 2
-
-            #     ImageDraw.Draw(image).text(
-            #         ((((box['box'][2] + box['box'][0]) / 2) - fontWidth / 2),
-            #          ((box['box'][3] + box['box'][1]) / 2)),
-            #         str(
-            #             box['id']),
-            #         fill="black",
-            #         font=font)
 
         return image
 

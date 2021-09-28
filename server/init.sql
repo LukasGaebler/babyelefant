@@ -72,8 +72,8 @@ CREATE TABLE public.co_contacts (
 );
 CREATE INDEX co_contacts2_co_camera_co_datetime_idx ON public.co_contacts USING btree (co_camera, co_datetime DESC);
 CREATE INDEX co_contacts2_co_datetime_idx ON public.co_contacts USING btree (co_datetime DESC);
-
-select create_hypertable('co_contacts', 'co_datetime', 'co_id', 3, chunk_time_interval => interval '1 day' );
+/* 
+select create_hypertable('co_contacts', 'co_datetime', 'co_id', 3, chunk_time_interval => interval '1 day' ); */
 
 /* CREATE MATERIALIZED  VIEW d_distancedata WITH (timescaledb.continuous) as
  SELECT time_bucket('00:05:00'::interval, co_contacts.co_datetime) AS d_datetime,
@@ -136,7 +136,7 @@ VALUES(1, 'Test', 1, 'Test 1');
 
 /* INSERT INTO public.c_cameras
 (c_link, c_e_event, c_homography, c_maxdistance, c_pixelpermeter, c_public, c_downtime_start, c_downtime_end)
-VALUES('https://www.youtube.com/watch?v=PGrq-2mju2s', 1, '{"matrix": [[0, 0, 0], [0, 0, 0], [0, 0, 0]]}'::jsonb, 2, -1, true, '20:00', '06:00'); */
+VALUES('https://www.youtube.com/watch?v=PGrq-2mju2s', 1, '{"matrix": [[-5.290478678272303e-05, 0.06991421058208373, -1.1505644086773635e-08], [-0.0012537249814707427, 0.5234823163407988, -1.8794378461412196e-08], [-8.847374582763141e-07, 0.000369414680936358, 0.00021879833289292772]]}'::jsonb, 2, 0.1, true, '20:00', '06:00'); */
 INSERT INTO public.c_cameras
 (c_link, c_e_event, c_homography, c_maxdistance, c_pixelpermeter, c_public, c_downtime_start, c_downtime_end)
-VALUES('0', 1, '{"matrix": [[0, 0, 0], [0, 0, 0], [0, 0, 0]]}'::jsonb, 2, -1, true, '20:00', '06:00');
+VALUES('0', 1, '{"matrix": [[-5.290478678272303e-05, 0.06991421058208373, -1.1505644086773635e-08], [-0.0012537249814707427, 0.5234823163407988, -1.8794378461412196e-08], [-8.847374582763141e-07, 0.000369414680936358, 0.00021879833289292772]]}'::jsonb, 2, 1, true, '20:00', '06:00'); 
