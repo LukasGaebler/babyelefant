@@ -1,0 +1,42 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow will install Deno and run tests across stable and nightly builds on Windows, Ubuntu and macOS.
+# For more information see: https://github.com/denolib/setup-deno
+
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+            fetch-depth: 0
+      - uses: nelonoel/branch-name@v1.0.1
+      - name: Set env to staging
+        if: endsWith(github.ref, '/develop')
+        run: |
+          echo "ENVIRONMENT=babyelefant-frontend" >> $GITHUB_ENV
+      - name: Set env to production
+        if: endsWith(github.ref, '/master')
+        run: |
+          echo "ENVIRONMENT=babyelefant-prod" >> $GITHUB_ENV
+      - id: deploy
+        name: Deploy to dokku
+        uses: idoberko2/dokku-deploy-github-action@v1
+        with:
+            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+            dokku-host: 'pressler.dev'
+            app-name: ${{env.ENVIRONMENT}}
+            remote-branch: ${BRANCH_NAME}

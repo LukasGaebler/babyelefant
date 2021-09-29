@@ -1,0 +1,16 @@
+FROM pytorch/pytorch:1.9.0-cuda10.2-cudnn7-runtime
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y python3-opencv
+RUN apt-get -o Dpkg::Options::="--force-confmiss" install --reinstall netbase
+
+COPY requirements.txt requirements.txt
+RUN python3 -m pip install -r requirements.txt
+
+COPY . .
+
+RUN usermod -a -G video root
+
+EXPOSE 8000
+CMD [ "python3","-u", "main.py"]
