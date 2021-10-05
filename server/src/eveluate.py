@@ -42,8 +42,6 @@ def evaluateImages():
 
         calibrationCache[evaluateIds[i]] = boxes
 
-        logger.info(distances)
-
         if schedule.pixelpermeter != -1 and len(distances) > 2:
             addDistanceToDatabase(distances, schedule.id, result)
 
