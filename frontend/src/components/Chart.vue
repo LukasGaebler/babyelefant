@@ -70,6 +70,8 @@ export default {
               },
             ],
           };
+        } else {
+          this.datacollection = {};
         }
       }
       if (this.typeOfData === "masken") {
