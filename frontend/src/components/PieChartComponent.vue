@@ -22,6 +22,9 @@ export default {
         hoverBorderWidth: 20,
         responsive: true,
         maintainAspectration: false,
+        animation: {
+          duration: 0
+        }
       },
       datacollection: null,
     };
