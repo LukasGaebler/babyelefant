@@ -38,7 +38,7 @@ import api from "../services/api";
 import chart from "../components/Chart";
 
 export default {
-  data: function () {
+  data: function() {
     return {
       streams: [],
       rerender: 1,
@@ -104,6 +104,7 @@ export default {
                 }
               });
             element.loadedGraph = false;
+
             this.streams.push(element);
           });
           this.streamsLoaded = true;

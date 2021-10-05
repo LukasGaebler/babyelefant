@@ -15,7 +15,7 @@ services:
         depends_on:
             - "db"
         devices:
-            - "/dev/video2:/dev/video0"
+            - "/dev/video0:/dev/video0"
         runtime: nvidia
     db:
         image: 'postgres:alpine'
