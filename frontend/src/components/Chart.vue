@@ -75,7 +75,8 @@ export default {
         }
       }
       if (this.typeOfData === "masken") {
-        this.datacollection = {
+        if (this.apiData != undefined) {
+          this.datacollection = {
           labels: this.apiData[0].map(
             (x) =>
               "" +
@@ -97,6 +98,9 @@ export default {
             },
           ],
         };
+        } else {
+          this.datacollection = {};
+        }
       }
     },
     getRandomInt() {
