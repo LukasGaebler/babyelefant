@@ -3,6 +3,7 @@ from ai.src.maskdetection import MaskDetection
 import model
 from model.DistanceData import DistanceData
 import cv2
+from loguru import logger
 import numpy as np
 import datetime
 
@@ -41,6 +42,8 @@ def evaluateImages():
 
         calibrationCache[evaluateIds[i]] = boxes
 
+        logger.info(distances)
+
         if schedule.pixelpermeter != -1 and len(distances) > 2:
             addDistanceToDatabase(distances, schedule.id, result)
 
@@ -53,7 +56,6 @@ def evaluateImages():
 
     #threading.Timer(0.1, evaluateImages).start()
 
-0
 def addDistanceToDatabase(distances, camera_id, data):
     d_numberofpeople = len(data[0])
 

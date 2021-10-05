@@ -17,9 +17,9 @@ services:
         depends_on:
             - "db"
         devices:
-            - "/dev/video2:/dev/video0"
+            - "/dev/video0:/dev/video0"
     db:
-        image: 'timescale/timescaledb:latest-pg12'
+        image: 'postgres:alpine'
         environment:
             - POSTGRES_USER=babyelefant
             - POSTGRES_PASSWORD=1234
@@ -46,6 +46,5 @@ services:
           - "--entrypoints.web.address=:80"
         ports:
           - "80:80"
-          - "8080:8080"
         volumes:
           - "/var/run/docker.sock:/var/run/docker.sock:ro"
