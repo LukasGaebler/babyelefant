@@ -108,7 +108,8 @@ export default {
   },
   methods: {
     getData() {
-      setInterval(()=>{
+      //Keep function to implement live update later
+      setTimeout(()=>{
         this.data = [[],[],[]];
         this.maskData = [[],[]];
         api.get(process.env.VUE_APP_API_URL + "/distanceData/").then((data) => {
@@ -127,12 +128,11 @@ export default {
               this.maskData[1].push(this.maskedPeople/this.numberOfPeople*100);
             }
           }
-
           if (this.data != undefined) {
             this.forceRerender();
           }
         });
-      },1000);
+      },0);
 
       api.get(process.env.VUE_APP_API_URL + "/events/").then((data) => {
         var events = data.data.data;
@@ -141,8 +141,11 @@ export default {
     },
 
     forceRerender() {
+      var scrollX = window.scrollX;
+      var scrollY = window.scrollY;
       this.rerender += 1;
       this.rerenderPie += 1;
+      window.scrollTo(scrollX,scrollY);
     },
 
     getMaskRatio() {

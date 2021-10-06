@@ -32,7 +32,7 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
         animation: {
-          duration: 0
+          duration: 0.1
         }
       },
     };
