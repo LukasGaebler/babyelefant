@@ -114,6 +114,7 @@ export default {
         var index = stats.length - 100;
         for (index; index < stats.length; index++) {
           if (stats[index] != undefined) {
+            console.log(this.data)
             this.data[0].push(new Date(stats[index]["d_datetime"]));
             this.maskData[0].push(new Date(stats[index]["d_datetime"]));
             this.data[1].push(stats[index]["d_avg"]);

@@ -6,7 +6,6 @@ import itertools
 import math
 from utils.torch_utils import select_device
 from models.experimental import attempt_load
-from loguru import logger
 import torchvision.ops.boxes as bops
 
 device = select_device()
