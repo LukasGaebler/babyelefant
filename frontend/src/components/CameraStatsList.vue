@@ -100,6 +100,7 @@ export default {
                     element.cameraData[0].push(stats[index]["d_datetime"]);
                     element.cameraData[1].push(stats[index]["d_avg"]);
                     element.cameraData[2].push(stats[index]["d_min"]);
+                    element.cameraData[3].push(stats[index]["d_numberofpeople"] / stats[index]["d_maskedpeople"] * 100);
                   }
                 }
               });
