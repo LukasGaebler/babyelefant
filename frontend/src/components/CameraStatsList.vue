@@ -7,6 +7,7 @@
             <img
               class="StreamImg"
               v-bind:src="stream.streamLink"
+              @load="loadStream(stream.c_id)"
             />
             <!-- div class="overlay">
               <button
@@ -68,11 +69,21 @@ export default {
         )
         .then((data) => {
           data.data.cameras.forEach((element) => {
-              var random = Math.floor(Math.random() * Math.pow(2, 31));
-              var streamId = element.c_id;
-              element.streamLink =
+            var random = Math.floor(Math.random() * Math.pow(2, 31));
+            var streamId = element.c_id;
+            element.streamLink =
+              process.env.VUE_APP_API_URL +
+              "/video_feed/" +
+              streamId +
+              "?i=" +
+              random +
+              "&jwt=" +
+              localStorage.getItem("token");
+            element.key = key;
+            key++;
+            api
+              .get(
                 process.env.VUE_APP_API_URL +
-
                   "/distanceData/camera/" +
                   element.c_id
               )
