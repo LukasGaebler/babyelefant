@@ -7,7 +7,6 @@
             <img
               class="StreamImg"
               v-bind:src="stream.streamLink"
-              @load="loadStream(stream.c_id)"
             />
             <!-- div class="overlay">
               <button
@@ -69,47 +68,88 @@ export default {
         )
         .then((data) => {
           data.data.cameras.forEach((element) => {
-            var random = Math.floor(Math.random() * Math.pow(2, 31));
-            var streamId = element.c_id;
-            element.streamLink =
-              process.env.VUE_APP_API_URL +
-              "/video_feed/" +
-              streamId +
-              "?i=" +
-              random +
-              "&jwt=" +
-              localStorage.getItem("token");
-            element.key = key;
-            key++;
-            api
-              .get(
+              var random = Math.floor(Math.random() * Math.pow(2, 31));
+              var streamId = element.c_id;
+              element.streamLink =
                 process.env.VUE_APP_API_URL +
-                  "/distanceData/camera/" +
-                  element.c_id
-              )
-              .then((data) => {
-                element.cameraData = [
-                  [], //Labels X-Achse
-                  [], // Average
-                  [], // Minimum
-                  [] // Mask
-                ];
-                var stats = data.data.data;
-                var index = stats.length - 50;
-                for (index; index < stats.length; index++) {
-                  if (stats[index] != undefined) {
-                    element.cameraData[0].push(stats[index]["d_datetime"]);
-                    element.cameraData[1].push(stats[index]["d_avg"]);
-                    element.cameraData[2].push(stats[index]["d_min"]);
-                    element.cameraData[3].push(stats[index]["d_maskedpeople"] / stats[index]["d_numberofpeople"] * 100);
+                "/video_feed/" +
+                streamId +
+                "?i=" +
+                random +
+                "&jwt=" +
+                localStorage.getItem("token");
+              element.key = key;
+              key++;
+              api
+                .get(
+                  process.env.VUE_APP_API_URL +
+                    "/distanceData/camera/" +
+                    element.c_id
+                )
+                .then((data) => {
+                  element.cameraData = [
+                    [], //Labels X-Achse
+                    [], // Average
+                    [], // Minimum
+                    []
+                  ];
+                  var stats = data.data.data;
+                  var index = stats.length - 50;
+                  for (index; index < stats.length; index++) {
+                    if (stats[index] != undefined) {
+                      element.cameraData[0].push(stats[index]["d_datetime"]);
+                      element.cameraData[1].push(stats[index]["d_avg"]);
+                      element.cameraData[2].push(stats[index]["d_min"]);
+                      element.cameraData[3].push(stats[index]["d_maskedpeople"] / stats[index]["d_numberofpeople"] * 100);
+                    }
                   }
-                }
-              });
-            element.loadedGraph = false;
-
-            this.streams.push(element);
-          });
-          this.streamsLoaded = true;
+                });
+              element.loadedGraph = false;
+              this.streams.push(element);
+            });
+            this.streamsLoaded = true;
+          setInterval(() => {
+            this.streams.forEach((element) => {
+              var random = Math.floor(Math.random() * Math.pow(2, 31));
+              var streamId = element.c_id;
+              element.streamLink =
+                process.env.VUE_APP_API_URL +
+                "/video_feed/" +
+                streamId +
+                "?i=" +
+                random +
+                "&jwt=" +
+                localStorage.getItem("token");
+              api
+                .get(
+                  process.env.VUE_APP_API_URL +
+                    "/distanceData/camera/" +
+                    element.c_id
+                )
+                .then((data) => {
+                  element.cameraData = [
+                    [], //Labels X-Achse
+                    [], // Average
+                    [], // Minimum
+                  ];
+                  var stats = data.data.data;
+                  var index = stats.length - 50;
+                  for (index; index < stats.length; index++) {
+                    if (stats[index] != undefined) {
+                      element.cameraData[0].push(stats[index]["d_datetime"]);
+                      element.cameraData[1].push(stats[index]["d_avg"]);
+                      element.cameraData[2].push(stats[index]["d_min"]);
+                      element.cameraData[3].push(stats[index]["d_maskedpeople"] / stats[index]["d_numberofpeople"] * 100);
+                    }
+                  }
+                });
+                this.forceRerender();
+              //element.loadedGraph = false;
+            });
+          },1000);
+          
+          //this.streams.push(...data.data.cameras);
+          
         });
     },
     loadStream(id) {
