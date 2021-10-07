@@ -72,14 +72,14 @@ export default {
                 borderColor: "#03506f",
                 data: this.apiData[1],
                 fill: false,
-              },
+              },/*
               {
                 label: "Personen mit Masken in %",
                 backgroundColor: "#03503a",
                 borderColor: "#03503a",
                 data: this.apiData[3],
                 fill: false,
-              }
+              }*/
             ],
           };
         } else {
