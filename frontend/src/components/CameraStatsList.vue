@@ -131,6 +131,7 @@ export default {
                     [], //Labels X-Achse
                     [], // Average
                     [], // Minimum
+                    []
                   ];
                   var stats = data.data.data;
                   var index = stats.length - 50;
