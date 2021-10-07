@@ -73,12 +73,22 @@ export default {
                 data: this.apiData[1],
                 fill: false,
               },
+              {
+                label: "Personen mit Masken in %",
+                backgroundColor: "#03503a",
+                borderColor: "#03503a",
+                data: this.apiData[3],
+                fill: false,
+              }
             ],
           };
+        } else {
+          this.datacollection = {};
         }
       }
       if (this.typeOfData === "masken") {
-        this.datacollection = {
+        if (this.apiData != undefined) {
+          this.datacollection = {
           labels: this.apiData[0].map(
             (x) =>
               "" +
@@ -100,6 +110,9 @@ export default {
             },
           ],
         };
+        } else {
+          this.datacollection = {};
+        }
       }
     },
     getRandomInt() {

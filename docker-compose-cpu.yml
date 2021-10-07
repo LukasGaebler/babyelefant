@@ -19,7 +19,7 @@ services:
         devices:
             - "/dev/video0:/dev/video0"
     db:
-        image: 'timescale/timescaledb:latest-pg12'
+        image: 'postgres:alpine'
         environment:
             - POSTGRES_USER=babyelefant
             - POSTGRES_PASSWORD=1234

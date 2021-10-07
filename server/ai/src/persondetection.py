@@ -52,7 +52,7 @@ class PersonDetection:
 
         masks_tensor = []
 
-        for *box, conf, predclass in predictions:
+        for *box, conf, predclass in masks:
              masks_tensor.append([torch.tensor([box]),predclass.item()])
 
         for *box, conf, predclass in predictions:
@@ -68,7 +68,7 @@ class PersonDetection:
                         break """
 
                 for item in masks_tensor:
-                    if bops.box_iou(item[0], box_tensor) > 0.9:
+                    if bops.box_iou(item[0], box_tensor) > 0.05:
                         mask = item[1]
                         break
 

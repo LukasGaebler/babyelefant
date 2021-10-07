@@ -37,7 +37,7 @@ import api from "../services/api";
 import chart from "../components/Chart";
 
 export default {
-  data: function () {
+  data: function() {
     return {
       streams: [],
       rerender: 1,
@@ -72,81 +72,33 @@ export default {
               var streamId = element.c_id;
               element.streamLink =
                 process.env.VUE_APP_API_URL +
-                "/video_feed/" +
-                streamId +
-                "?i=" +
-                random +
-                "&jwt=" +
-                localStorage.getItem("token");
-              element.key = key;
-              key++;
-              api
-                .get(
-                  process.env.VUE_APP_API_URL +
-                    "/distanceData/camera/" +
-                    element.c_id
-                )
-                .then((data) => {
-                  element.cameraData = [
-                    [], //Labels X-Achse
-                    [], // Average
-                    [], // Minimum
-                  ];
-                  var stats = data.data.data;
-                  var index = stats.length - 50;
-                  for (index; index < stats.length; index++) {
-                    if (stats[index] != undefined) {
-                      element.cameraData[0].push(stats[index]["d_datetime"]);
-                      element.cameraData[1].push(stats[index]["d_avg"]);
-                      element.cameraData[2].push(stats[index]["d_min"]);
-                    }
+
+                  "/distanceData/camera/" +
+                  element.c_id
+              )
+              .then((data) => {
+                element.cameraData = [
+                  [], //Labels X-Achse
+                  [], // Average
+                  [], // Minimum
+                  [] // Mask
+                ];
+                var stats = data.data.data;
+                var index = stats.length - 50;
+                for (index; index < stats.length; index++) {
+                  if (stats[index] != undefined) {
+                    element.cameraData[0].push(stats[index]["d_datetime"]);
+                    element.cameraData[1].push(stats[index]["d_avg"]);
+                    element.cameraData[2].push(stats[index]["d_min"]);
+                    element.cameraData[3].push(stats[index]["d_maskedpeople"] / stats[index]["d_numberofpeople"] * 100);
                   }
-                });
-              element.loadedGraph = false;
-              this.streams.push(element);
-            });
-            this.streamsLoaded = true;
-          setInterval(() => {
-            this.streams.forEach((element) => {
-              var random = Math.floor(Math.random() * Math.pow(2, 31));
-              var streamId = element.c_id;
-              element.streamLink =
-                process.env.VUE_APP_API_URL +
-                "/video_feed/" +
-                streamId +
-                "?i=" +
-                random +
-                "&jwt=" +
-                localStorage.getItem("token");
-              api
-                .get(
-                  process.env.VUE_APP_API_URL +
-                    "/distanceData/camera/" +
-                    element.c_id
-                )
-                .then((data) => {
-                  element.cameraData = [
-                    [], //Labels X-Achse
-                    [], // Average
-                    [], // Minimum
-                  ];
-                  var stats = data.data.data;
-                  var index = stats.length - 50;
-                  for (index; index < stats.length; index++) {
-                    if (stats[index] != undefined) {
-                      element.cameraData[0].push(stats[index]["d_datetime"]);
-                      element.cameraData[1].push(stats[index]["d_avg"]);
-                      element.cameraData[2].push(stats[index]["d_min"]);
-                    }
-                  }
-                });
-                this.forceRerender();
-              //element.loadedGraph = false;
-            });
-          },1000);
-          
-          //this.streams.push(...data.data.cameras);
-          
+                }
+              });
+            element.loadedGraph = false;
+
+            this.streams.push(element);
+          });
+          this.streamsLoaded = true;
         });
     },
     loadStream(id) {
