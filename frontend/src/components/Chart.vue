@@ -31,6 +31,9 @@ export default {
         },
         responsive: true,
         maintainAspectRatio: false,
+        animation: {
+          duration: 0.1
+        }
       },
     };
   },
@@ -51,7 +54,9 @@ export default {
                 " " +
                 new Date(x).getHours() +
                 ":" +
-                new Date(x).getMinutes()
+                new Date(x).getMinutes() +
+                ":" +
+                new Date(x).getSeconds()
             ),
             datasets: [
               {

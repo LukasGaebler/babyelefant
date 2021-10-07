@@ -77,7 +77,6 @@
 import api from "../services/api";
 import chart from "../components/Chart";
 import pieChart from "../components/PieChartComponent";
-// import linechart from "../components/LineChart";
 
 export default {
   data: function() {
@@ -109,28 +108,31 @@ export default {
   },
   methods: {
     getData() {
-      api.get(process.env.VUE_APP_API_URL + "/distanceData/").then((data) => {
-        var stats = data.data.data;
-        var index = stats.length - 100;
-        for (index; index < stats.length; index++) {
-          if (stats[index] != undefined) {
-            console.log(this.data)
-            this.data[0].push(new Date(stats[index]["d_datetime"]));
-            this.maskData[0].push(new Date(stats[index]["d_datetime"]));
-            this.data[1].push(stats[index]["d_avg"]);
-            this.currentAvg = Math.round(stats[index]["d_avg"] * 100) / 100;
-            this.data[2].push(stats[index]["d_min"]);
-            this.currentMin = Math.round(stats[index]["d_min"] * 100) / 100;
-            this.numberOfPeople = stats[index]["d_numberofpeople"];
-            this.maskedPeople = stats[index]["d_maskedpeople"];
-            this.maskData[1].push(this.maskedPeople/this.numberOfPeople*100);
+      //Keep function to implement live update later
+      setTimeout(()=>{
+        this.data = [[],[],[]];
+        this.maskData = [[],[]];
+        api.get(process.env.VUE_APP_API_URL + "/distanceData/").then((data) => {
+          var stats = data.data.data;
+          var index = stats.length - 100;
+          for (index; index < stats.length; index++) {
+            if (stats[index] != undefined) {
+              this.data[0].push(new Date(stats[index]["d_datetime"]));
+              this.maskData[0].push(new Date(stats[index]["d_datetime"]));
+              this.data[1].push(stats[index]["d_avg"]);
+              this.currentAvg = Number(stats[index]["d_avg"]);
+              this.data[2].push(stats[index]["d_min"]);
+              this.currentMin = Number(stats[index]["d_min"]);
+              this.numberOfPeople = stats[index]["d_numberofpeople"];
+              this.maskedPeople = stats[index]["d_maskedpeople"];
+              this.maskData[1].push(this.maskedPeople/this.numberOfPeople*100);
+            }
           }
-        }
-
-        if (this.data != undefined) {
-          this.forceRerender();
-        }
-      });
+          if (this.data != undefined) {
+            this.forceRerender();
+          }
+        });
+      },0);
 
       api.get(process.env.VUE_APP_API_URL + "/events/").then((data) => {
         var events = data.data.data;
@@ -139,8 +141,11 @@ export default {
     },
 
     forceRerender() {
+      var scrollX = window.scrollX;
+      var scrollY = window.scrollY;
       this.rerender += 1;
       this.rerenderPie += 1;
+      window.scrollTo(scrollX,scrollY);
     },
 
     getMaskRatio() {

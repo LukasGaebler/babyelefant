@@ -35,7 +35,7 @@ export default {
         });
         
 
-      }).then(() => this.$router.go(0));
+      });
     },
   },
 };
