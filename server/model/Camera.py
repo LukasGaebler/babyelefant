@@ -1,7 +1,7 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, Numeric
+from sqlalchemy import Column, ForeignKey, Integer, String, Numeric, JSON
 from sqlalchemy.sql.sqltypes import Boolean
 from . import db
-from sqlalchemy.dialects.postgresql import JSONB
+#from sqlalchemy.dialects.postgresql import JSONB
 import numpy as np
 import json
 
@@ -13,7 +13,7 @@ class Camera(db.Model):
     c_id = Column(Integer, primary_key=True, autoincrement=True)
     c_link = Column(String(100))
     c_e_event = Column(Integer, ForeignKey('e_events.e_id'))
-    c_homography = Column(JSONB)
+    c_homography = Column(JSON)
     c_maxdistance = Column(Numeric)
     c_pixelpermeter = Column(Numeric)
     c_public = Column(Boolean)

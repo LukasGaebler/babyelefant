@@ -15,8 +15,11 @@ api = Namespace('auth', description='Authentication operations')
 @api.route('/login')
 class Login(Resource):
     def post(self):
-        loginUsername = request.json['username']
-        loginPassword = request.json['password']
+        if request.json is not None:
+            loginUsername = request.json.get('username')
+            loginPassword = request.json.get('password')
+        else:
+            return "No username or password provided as json", 401
 
         try:
             user = db.session.query(User).filter_by(u_name=loginUsername).one()

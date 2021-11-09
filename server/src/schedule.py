@@ -55,7 +55,7 @@ class Schedule:
             try:
                 if self.link == "0":
                     self.link = 0
-                self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, logging=True, stream_mode=self.stream_mode).start()
+                self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, stream_mode=self.stream_mode).start()
 
                 # init cache to show when starting a stream
                 image = self.video.read()
@@ -80,7 +80,7 @@ class Schedule:
     def setLink(self, link):
         if link != self.link:
             self.link = link
-            self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, logging=True, stream_mode=self.stream_mode).start()
+            self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, stream_mode=self.stream_mode).start()
 
     """ def getIds(self, det, image):
         if det is not None and len(det):
@@ -112,14 +112,14 @@ class Schedule:
 
     def __del__(self):
         if hasattr(self, 'video'):
-            self.video.release()
+            self.video.stop()
 
     def get_frame(self):
         if hasattr(self, 'video'):
             image = self.video.read()
             
             if image is None:
-                self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, logging=True, stream_mode=self.stream_mode).start()
+                self.video = CamGear(source=self.link,THREADED_QUEUE_MODE=False, stream_mode=self.stream_mode).start()
             else:
                 self.internal_cache = image
                 

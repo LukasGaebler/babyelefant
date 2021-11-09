@@ -1,4 +1,4 @@
-GRANT USAGE ON SCHEMA public TO babyelefant;
+--GRANT USAGE ON SCHEMA public TO babyelefant;
 
 -- public.u_users definition
 
@@ -41,7 +41,7 @@ CREATE TABLE public.c_cameras (
 	c_id serial NOT NULL,
 	c_link text NOT NULL,
 	c_e_event int4 NOT NULL,
-	c_homography jsonb NOT NULL,
+	c_homography json NOT NULL,
 	c_maxdistance numeric NOT NULL,
 	c_pixelpermeter numeric NOT NULL,
 	c_public bool NOT NULL,

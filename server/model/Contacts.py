@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, Numeric, Boolean
+from sqlalchemy import Column, Integer, Numeric, Boolean, TIMESTAMP
 from . import db
-from sqlalchemy.dialects.postgresql import TIMESTAMP
+#from sqlalchemy.dialects.postgresql import TIMESTAMP
 
 
 class Contacts(db.Model):
