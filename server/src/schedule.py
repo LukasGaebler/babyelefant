@@ -28,7 +28,7 @@ def bbox_rel(*xyxy):
 
 class Schedule:
 
-    def __init__(self, id, link, matrix, user, maxdistance, pixelpermeter, event_id, downtime_start, downtime_end, deepsort_model):
+    def __init__(self, id, link, matrix, user, maxdistance, pixelpermeter, event_id, downtime_start, downtime_end):
         self.event_id = event_id
         self.maxdistance = maxdistance
         self.pixelpermeter = pixelpermeter
@@ -51,7 +51,7 @@ class Schedule:
             use_cuda=True,
             model=deepsort_model) """
 
-        if self.link is not None:
+        """ if self.link is not None:
             try:
                 if self.link == "0":
                     self.link = 0
@@ -66,7 +66,9 @@ class Schedule:
             if image is None:
                 image = np.zeros((720, 1280, 3), np.uint8)
         else:
-            image = np.zeros((720, 1280, 3), np.uint8)
+            image = np.zeros((720, 1280, 3), np.uint8) """
+            
+        image = np.zeros((720, 1280, 3), np.uint8)
 
         self.set_cache(image)
         self.internal_cache = image

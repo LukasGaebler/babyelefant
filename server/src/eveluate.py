@@ -1,3 +1,4 @@
+from typing import List
 from ai.src.persondetection import PersonDetection
 from ai.src.maskdetection import MaskDetection
 import model
@@ -53,9 +54,56 @@ def evaluateImages():
             schedule.isSubscribed = False
 
     #threading.Timer(0.1, evaluateImages).start()
+    
+def evaluateImage(imgs):
+    evaluate = []
+    images = []
+    evaluateIds = []
+    
+    for id, img in imgs.items():
+        evaluate.append(img)
+        images.append(img)
+        evaluateIds.append(id)    
+    
+    
+    """ for i, camera in list(schedules.items()):
+        image = camera.get_frame()
+        if camera.should_analyze():
+            evaluate.append(image)
+            images.append(image)
+            evaluateIds.append(i) """
 
-def addDistanceToDatabase(distances, camera_id, data):
-    d_numberofpeople = len(data[0])
+    results = []
+    if len(evaluate) > 0:
+        results = list(zip(personDetection.detect(
+            evaluate), maskDetection.detect(evaluate)))
+
+    for i, result in enumerate(results):
+        schedule = schedules[evaluateIds[i]]
+        distances, boxes = personDetection.calculateDistances(
+            schedule.matrix, result[0], None, schedule.maxdistance, float(
+                schedule.pixelpermeter), result[1])
+
+
+        calibrationCache[evaluateIds[i]] = boxes
+        
+        print(distances)
+
+        if schedule.pixelpermeter != -1 and len(distances) > 0:
+            print("Add")
+            addDistanceToDatabase(distances, schedule.id, result, boxes)
+
+        if schedule.isSubscribed:
+            drawn = personDetection.drawBoxes(
+                images[i], distances, boxes, result[1])
+            opencv_image = cv2.cvtColor(np.array(drawn), cv2.COLOR_RGB2BGR)
+            schedule.set_cache(opencv_image)
+            schedule.isSubscribed = False
+
+    #threading.Timer(0.1, evaluateImages).start()
+
+def addDistanceToDatabase(distances, camera_id, data, boxes):
+    d_numberofpeople = len(data)
 
     distances_list = list(map(lambda x: x['distance'],distances))
     d_maskedpople = sum(1 for x in data[1] if x[5].item() == 1)
