@@ -39,33 +39,38 @@ class PersonDetection:
         res = [[] if v is None else v for v in pred.pred]
         return res
 
+    @staticmethod
     def calculateDistances(
-            self,
             matrix,
             predictions,
-            ids,
             min_distance,
-            pixelpermeter,
-            masks):
+            pixelpermeter):
         distances = []
         boxes = []
 
         masks_tensor = []
+        
+        for item in predictions:
+            box = item['boxes']
+            measurePoint = [(box[0] + box[2]) / 2,
+                                box[3]]
+            transPoint = compute_point_perspective_transformation(matrix, [
+                measurePoint])
+            distances.append(
+                {"box": box, "point": transPoint[0], "mask": item['class']})
+            boxes.append({"box": box})
 
-        for *box, conf, predclass in masks:
-             masks_tensor.append([torch.tensor([box]),predclass.item()])
-
-        for *box, conf, predclass in predictions:
+        """ for *box, conf, predclass in predictions:
             if predclass == 0:
                 mask = None
                 box_tensor = torch.tensor([box])
                 #personId = None
-                """ for i, idbox in enumerate(ids):
+                for i, idbox in enumerate(ids):
                     overlap = max(box[0], idbox[0]) - min(box[2], idbox[2])
                     if overlap > 0.8:
                         ids = np.delete(ids, i, 0)
                         personId = idbox[4]
-                        break """
+                        break
 
                 for item in masks_tensor:
                     if bops.box_iou(item[0], box_tensor) > 0.05:
@@ -78,7 +83,7 @@ class PersonDetection:
                     measurePoint])
                 distances.append(
                     {"box": box, "point": transPoint[0], "mask": mask})
-                boxes.append({"box": box})
+                boxes.append({"box": box}) """
 
         output = []
 
@@ -96,18 +101,19 @@ class PersonDetection:
 
         return output, boxes
 
-    def drawBoxes(self, image, distances, boxes, masks):
+    @staticmethod
+    def drawBoxes(image, distances, boxes):
         font = ImageFont.truetype("arial.ttf", 20)
         alreadyDrawn = []
 
-        for *box, conf, predclass in masks:
+        """ for *box, conf, predclass in masks:
             mask = Image.new('L', image.size, 0)
             draw = ImageDraw.Draw(mask)
             draw.rectangle([ (box[0],box[1]), (box[2],box[3]) ], fill=255)
             blurred = image.filter(ImageFilter.GaussianBlur(50))
             image.paste(blurred, mask=mask)
             #ImageDraw.Draw(image).rectangle(box, fill=(
-            #        255, 0, 0, 255))
+            #        255, 0, 0, 255)) """
 
         width, height = image.size
 

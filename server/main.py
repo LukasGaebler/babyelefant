@@ -20,7 +20,7 @@ from flask_jwt_extended import (
 from flask_socketio import SocketIO, emit, disconnect, join_room, rooms
 from flask_sqlalchemy import models_committed
 import io
-from src.eveluate import evaluateImage, evaluateImages
+from src.evaluate import evaluateImage
 from model.Event import Event
 from model.Camera import Camera
 from model.DistanceData import DistanceData
@@ -29,6 +29,8 @@ import model
 import decimal
 import flask.json
 from PIL import Image
+import redis
+from numpy import ndarray
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -72,6 +74,8 @@ class DecimalEncoder(flask.json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, decimal.Decimal):
             return float(obj)
+        if isinstance(obj,ndarray):
+            return obj.tolist()
         return super(DecimalEncoder, self).default(obj)
 
 
@@ -79,9 +83,10 @@ app.json_encoder = DecimalEncoder
 
 CORS(app)
 
-# socketio.init_app(app, cors_allowed_origins="*")
 db.init_app(app)
 db.app = app
+r = redis.Redis(host='redis',port=6379,db=0)
+
 api.init_app(app)
 bcrypt.init_app(app)
 jwt = JWTManager(app)
@@ -129,16 +134,16 @@ def video_feed(id):
         return "User not authorized", 401
 
     schedule.isSubscribed = True
-    return send_file(io.BytesIO(schedule.cache), mimetype='image/png')
+    return send_file(io.BytesIO(r.get(str(id))), mimetype='image/png')
 
 @app.route('/api/analyze', methods=['POST'])
 def analyze():
     imgs = dict()
     for id, file in request.files.items():
-        img = Image.open(file.stream)
-        imgs[int(id)] = img
+        f = file.read()
+        imgs[str(id)] = f
     
-    evaluateImage(imgs)
+    evaluateImage(imgs,r)
         
     return "", 201
     
@@ -169,16 +174,6 @@ with app.app_context():
                 "Error occured while creating camera with id: {id}", id=camera['c_id'])
 
     logger.info('Finished initializing schedules')
-
-""" 
-def evaluateImagesLoop():
-    logger.info('Starting evaluation loop')
-    while True:
-        evaluateImages()
-        time.sleep(0.1) 
-
-
-threading.Thread(target=evaluateImagesLoop, daemon=True).start() """
 
 if(__name__) == "__main__":
     logger.info("Start server")

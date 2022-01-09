@@ -169,8 +169,9 @@ class NMS(nn.Module):
     iou = 0.45  # IoU threshold
     classes = None  # (optional list) filter by class
 
-    def __init__(self):
+    def __init__(self, classes):
         super(NMS, self).__init__()
+        self.classes = classes
 
     def forward(self, x):
         return non_max_suppression(
@@ -188,9 +189,10 @@ class autoShape(nn.Module):
     iou = 0.45  # NMS IoU threshold
     classes = None  # (optional list) filter by class
 
-    def __init__(self, model):
+    def __init__(self, model,classes):
         super(autoShape, self).__init__()
         self.model = model.eval()
+        self.classes = classes
 
     def autoshape(self):
         # model already converted to model.autoshape()

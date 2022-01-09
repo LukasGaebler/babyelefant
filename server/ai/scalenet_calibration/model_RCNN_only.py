@@ -76,6 +76,8 @@ class RCNN_only(nn.Module):
         # im_ori_RGB = Image.open(test_image_path).convert(
         #   'RGB')  # im_ori_RGB.size: [W, H]
         im = self.eval_trnfs_maskrcnn(im_ori_RGB)
+        
+        
 
 
         H_num, W_num = im_ori_RGB.size

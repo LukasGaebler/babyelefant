@@ -35,6 +35,8 @@ imageio
 #pycocotools
 vidgear
 loguru
+grpcio
+redis
 
 --find-links https://download.pytorch.org/whl/torch_stable.html
 
