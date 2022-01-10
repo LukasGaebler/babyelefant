@@ -37,6 +37,7 @@ vidgear
 loguru
 grpcio
 redis
+gunicorn
 
 --find-links https://download.pytorch.org/whl/torch_stable.html
 

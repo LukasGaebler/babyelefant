@@ -1,8 +1,8 @@
 from flask_restx import Namespace, Resource
 from flask import jsonify, request
-from model.Event import Event as DBEvent
+from app.model.Event import Event as DBEvent
 from flask_jwt_extended import get_jwt_identity, jwt_required
-import model
+import app.model as model
 db = model.db
 
 api = Namespace('event', description='Event operations')

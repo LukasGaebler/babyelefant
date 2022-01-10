@@ -2,21 +2,21 @@ from flask_restx import Namespace, Resource
 from flask import send_from_directory, send_file, request
 import io
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from src.evaluate import evaluateImage
-
-from . import r
+from app.src.evaluate import evaluateImage
 
 api = Namespace('ressources', description='Ressources')
 
+from app import r
+
 @api.route('/static/<path:path>')
 class Static(Resource):
-    def get(path):
+    def get(self,path):
         return send_from_directory('static', path)
 
 @api.route('/video_feed/<id>')
 class VideoFeed(Resource):
     @jwt_required()
-    def get(id):
+    def get(self,id):
         """ userid = int(get_jwt_identity()['user_id'])
         try:
             schedule = schedules[int(id)]
@@ -30,8 +30,8 @@ class VideoFeed(Resource):
 
 @api.route('/analyze')
 class Analyze(Resource):
-    @jwt_required
-    def post():
+    @jwt_required()
+    def post(self):
         imgs = dict()
         for id, file in request.files.items():
             f = file.read()

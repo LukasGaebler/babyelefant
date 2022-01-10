@@ -1,12 +1,12 @@
-from model.DistanceDataPerEvent import DistanceDataPerEvent
+from app.model.DistanceDataPerEvent import DistanceDataPerEvent
 from flask_restx import Namespace, Resource
 from flask import jsonify
-from model.Event import Event
-from model.Camera import Camera
-from model.DistanceData import DistanceData as DistanceDataModel
+from app.model.Event import Event
+from app.model.Camera import Camera
+from app.model.DistanceData import DistanceData as DistanceDataModel
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from sqlalchemy.sql import text
-import model
+import app.model as model
 db = model.db
 
 api = Namespace('distanceData', description='DistanceData operations')

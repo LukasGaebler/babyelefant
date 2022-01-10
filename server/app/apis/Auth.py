@@ -1,7 +1,7 @@
 from flask_restx import Namespace, Resource
-from model.User import User
+from app.model.User import User
 from flask import jsonify, request
-import model
+import app.model as model
 import os
 import datetime
 from flask_jwt_extended import create_access_token

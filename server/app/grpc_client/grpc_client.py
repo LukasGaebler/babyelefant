@@ -1,8 +1,8 @@
 import grpc
-from grpc_client.inference_pb2 import *
-from grpc_client.inference_pb2_grpc import *
-from grpc_client.management_pb2 import *
-from grpc_client.management_pb2_grpc import *
+from app.grpc_client.inference_pb2 import *
+from app.grpc_client.inference_pb2_grpc import *
+from app.grpc_client.management_pb2 import *
+from app.grpc_client.management_pb2_grpc import *
 import sys
 
 

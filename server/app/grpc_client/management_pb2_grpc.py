@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import grpc_client.management_pb2 as management__pb2
+import app.grpc_client.management_pb2 as management__pb2
 
 
 class ManagementAPIsServiceStub(object):

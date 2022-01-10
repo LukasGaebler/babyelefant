@@ -1,8 +1,8 @@
 from flask import jsonify, request, send_file
 from flask_restx import Namespace, Resource
-import model
+import app.model as model
 from flask_jwt_extended import get_jwt_identity, jwt_required, create_access_token
-from model.Event import Event
+from app.model.Event import Event
 import datetime
 from io import StringIO
 bcrypt = model.bcrypt

@@ -2,16 +2,18 @@ import io
 from typing import List
 
 from PIL import Image
-from ai.src.persondetection import PersonDetection
-from ai.src.maskdetection import MaskDetection
-import model
-from model.DistanceData import DistanceData
+from app.ai.src.persondetection import PersonDetection
+from app.ai.src.maskdetection import MaskDetection
+import app.model as model
+from app.model.DistanceData import DistanceData
+from flask import current_app
 import cv2
 from loguru import logger
 import numpy as np
 import datetime
-from grpc_client.grpc_client import infer,get_inference_stub
+from app.grpc_client.grpc_client import infer,get_inference_stub
 import json
+from app.model.Camera import Camera
 
 schedules = model.schedules
 db = model.db
@@ -25,21 +27,24 @@ def evaluateImage(imgs,r):
     
     for id, img in imgs.items():
         evaluateIds.append(int(id))
+        
+    with current_app.app_context():
+        cameras_db = db.session.query(Camera.c_id,Camera.c_homography,Camera.c_maxdistance,Camera.c_pixelpermeter).filter(Camera.c_id.in_(tuple(evaluateIds))).all()
 
+    cameras = {int(c.c_id):c for c in cameras_db}
+    
     results = []
     if len(imgs) > 0:
         results = json.loads(infer(stub,'yolov5', imgs))
 
     for i, result in enumerate(results):
-        schedule = schedules[evaluateIds[i]]
+        schedule = cameras[evaluateIds[i]]
         distances, boxes = PersonDetection.calculateDistances(
-            schedule.matrix, result, schedule.maxdistance, float(
-                schedule.pixelpermeter))
+            np.array(schedule.c_homography['matrix']), result, schedule.c_maxdistance, float(
+                schedule.c_pixelpermeter))
 
-        calibrationCache[evaluateIds[i]] = boxes
-
-        if schedule.pixelpermeter != -1 and len(distances) > 0:
-            addDistanceToDatabase(distances, schedule.id, result)
+        if schedule.c_pixelpermeter != -1 and len(distances) > 0:
+            addDistanceToDatabase(distances, schedule.c_id, result)
 
         drawn = PersonDetection.drawBoxes(
             Image.open(io.BytesIO(imgs[str(evaluateIds[i])])), distances, boxes)

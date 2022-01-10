@@ -13,4 +13,5 @@ COPY . .
 RUN usermod -a -G video root
 
 EXPOSE 8000
-CMD [ "python3","-u", "main.py"]
+CMD ["gunicorn", "-w", "4", "--bind", "0.0.0.0:8000", "run:app"]      
+##CMD [ "python3","-u", "run.py"]

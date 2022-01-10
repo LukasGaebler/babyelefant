@@ -1,25 +1,26 @@
 from flask_jwt_extended import get_jwt_identity
 from flask_restx import Namespace, Resource
 from flask import jsonify, request
-from model.Event import Event
-from model.Camera import Camera
+from app.model.Event import Event
+from app.model.Camera import Camera
 #from ai.birdseyeview.birdseyeview import getBirdsEyeViewHomography
 from flask_jwt_extended import jwt_required
-import model
-from src.evaluate import calibrationCache
-from ai.src.persondetection import compute_point_perspective_transformation
-# from math import degrees
-# from math import atan
-# from math import radians
-# from math import sin
+import app.model as model
+from app.ai.src.persondetection import compute_point_perspective_transformation
+from app.grpc_client.grpc_client import get_inference_stub,infer
 import math
-# import cv2
-from ai.scalenet_calibration.scalenet import calibration
+import json
 import numpy as np
+from loguru import logger
+from PIL import Image
+import io
+from app.ai.scalenet_calibration.utils.matrix import get_overhead_hmatrix_from_4cameraparams, get_scaled_homography
 db = model.db
 schedules = model.schedules
 
 api = Namespace('camera', description='Camera operations')
+
+from app import r
 
 
 @api.route('/')
@@ -124,12 +125,6 @@ class CamerasId(Resource):
 
         matrix, pixel_per_meter = calibrate(image, id, distance)
 
-        try:
-            schedules[int(id)].pixelpermeter = pixel_per_meter
-            schedules[int(id)].matrix = matrix
-        except BaseException:
-            return "Camera not in evaluation state", 400
-
         cameraExists[0].c_homography = {'matrix': matrix.tolist()}
         cameraExists[0].c_pixelpermeter = pixel_per_meter
 
@@ -204,16 +199,30 @@ class CamerasId(Resource):
 
 
 def calibrate(image, id, distance):
-    #orig_height, orig_width, orig_channels = image.shape
+    data = (json.loads(infer(get_inference_stub(),'scalenet',{str(id): image})))[0]
+    
+    print(data)
+    
+    pitch = data.get('output_pitch')
+    roll = data.get('output_roll')
+    vfov = data.get('output_vfov')
 
-    matrix = calibration(image)
+    w, h = Image.open(io.BytesIO(image)).size
+    f_pix = h / 2. / np.tan(vfov / 2.)
 
-    # matrix, fy, fx, my_tilt = getBirdsEyeViewHomography(image)
-    # fov = degrees(atan((orig_width/2)/fy)*2)
-    # fovx = degrees(atan((orig_height/2)/fx)*2)
-    box1 = calibrationCache[int(id)][0]['box']
-    box2 = calibrationCache[int(id)][1]['box']
+    sensor_size = 24 
+    f_pix / h * sensor_size
 
+    overhead_hmatrix, est_range_u, est_range_v = get_overhead_hmatrix_from_4cameraparams(
+        fx=f_pix, fy=f_pix, my_tilt=pitch, my_roll=-roll, img_dims=(w, h), verbose=False)
+
+    matrix, target_dim = get_scaled_homography(
+        overhead_hmatrix, 1080 * 2, est_range_u, est_range_v)
+    
+    boxes = (json.loads(infer(get_inference_stub(),'yolov5',{str(id): image})))[0]
+
+    box1 = boxes[0].get('boxes')
+    box2 = boxes[1].get('boxes')
     x1 = (box1[0] + box1[2]) / 2
     x2 = (box2[0] + box2[2]) / 2
 
@@ -223,33 +232,8 @@ def calibrate(image, id, distance):
     pixel = math.sqrt((transformed[1][0] - transformed[0][0])
                       ** 2 + (transformed[1][1] - transformed[0][1])**2)
 
-    # fovxPerPixel = (fovx/orig_height)
-
-    # downDegress = degrees(my_tilt) - (fovx / 2)
-
-    # deg1 = downDegress + (fovxPerPixel * box1[3].item())
-    # deg2 = downDegress + (fovxPerPixel * box2[3].item())
-
-    # camera = db.session.query(Camera).filter_by(c_id=id).first()
-    # height = float(camera.c_cameraheight)
-
-    # h1 = (height / sin(radians(90 - deg1))) * sin(radians(deg1))
-    # h2 = (height / sin(radians(90 - deg2))) * sin(radians(deg2))
-
-    # dif = abs(x2-x1) * (fov/orig_width)
-
-    # distance = (math.sqrt(h1**2 + h2**2 - 2*h1*h2*math.cos(radians(dif))))
-    #distance = 2
-    print("Distance: ", round(distance, 2), "m;", pixel / distance, pixel)
+    logger.info("Distance: ", round(distance, 2), "m;", pixel / distance, pixel)
 
     pixel_per_meter = pixel / distance
-
-    # cv2.rectangle(image, (box1[0].item(),box1[1]),(box1[2],box1[3]))
-    # cv2.rectangle(image,(box2[0],box2[1]),(box2[2],box2[3]))
-
-    # cv2.line(image, (math.trunc(x1.item()), math.trunc(box1[3].item())), (math.trunc(
-    #     x2.item()), math.trunc(box2[3].item())), (255, 255, 255), 10)
-
-    # cv2.imwrite("test.png", image)
 
     return matrix, pixel_per_meter

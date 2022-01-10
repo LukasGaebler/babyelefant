@@ -1,7 +1,9 @@
+import sys  # nopep8
+sys.path.append('./app/ai/pt')  # nopep8
+
 from flask import Flask
 from flask.json import JSONEncoder
-import model
-from apis import api
+import app.model as model
 import logging
 import os
 from loguru import logger
@@ -10,6 +12,7 @@ from flask_cors import CORS
 from redis import Redis
 from flask_jwt_extended import JWTManager
 from flask_swagger_ui import get_swaggerui_blueprint
+from numpy import ndarray
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -22,10 +25,6 @@ DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD')
 DATABASE_HOST = os.getenv('DATABASE_HOST')
 DATABASE_PORT = os.getenv('DATABASE_PORT')
 DATABASE_TABLE = os.getenv('DATABASE_TABLE')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://' + DATABASE_USERNAME + ':' + \
-    DATABASE_PASSWORD + '@' + DATABASE_HOST + \
-    ':' + DATABASE_PORT + '/' + DATABASE_TABLE
-    
     
 SWAGGER_URL = '/api/swagger'
 API_URL = '/api/static/swagger.json'
@@ -52,6 +51,8 @@ class DecimalEncoder(JSONEncoder):
     def default(self, obj):
         if isinstance(obj, decimal.Decimal):
             return float(obj)
+        if isinstance(obj,ndarray):
+            return obj.tolist()
         return super(DecimalEncoder, self).default(obj)
 
 def init_app():
@@ -65,11 +66,20 @@ def init_app():
     app.config['SECRET_KEY'] = SECRET_KEY
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     app.config['JWT_TOKEN_LOCATION'] = ['query_string', 'headers']
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://' + DATABASE_USERNAME + ':' + \
+    DATABASE_PASSWORD + '@' + DATABASE_HOST + \
+    ':' + DATABASE_PORT + '/' + DATABASE_TABLE
+    
+    from app.apis import api
     
     with app.app_context():
         app.logger.addHandler(handler)
         
         CORS(app)
+        
+        db.init_app(app)
+        db.app = app
+        
         api.init_app(app)
         bcrypt.init_app(app)
         jwt = JWTManager(app)

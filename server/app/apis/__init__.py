@@ -1,11 +1,11 @@
 from flask_restx import Api
-from apis.User import api as user
-from apis.Auth import api as auth
-from apis.Camera import api as camera
-from apis.Event import api as event
-from apis.DistanceData import api as distance
-from apis.Admin import api as admin
-from apis.Ressources import api as ressources
+from app.apis.User import api as user
+from app.apis.Auth import api as auth
+from app.apis.Camera import api as camera
+from app.apis.Event import api as event
+from app.apis.DistanceData import api as distance
+from app.apis.Admin import api as admin
+from app.apis.Ressources import api as ressources
 
 api = Api(
     title='Babyelefant API',

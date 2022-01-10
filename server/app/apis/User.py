@@ -1,8 +1,8 @@
 from flask_restx import Namespace, Resource
-from model.User import User
+from app.model.User import User
 from flask import jsonify, request
 from flask_jwt_extended import jwt_required, get_jwt_identity
-import model
+import app.model as model
 bcrypt = model.bcrypt
 db = model.db
 
