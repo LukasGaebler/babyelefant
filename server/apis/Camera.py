@@ -117,10 +117,10 @@ class CamerasId(Resource):
                 get_jwt_identity()['user_id']) and not get_jwt_identity()['admin']:
             return "Not allowed", 405
 
-        try:
-            image = schedules[int(id)].getRawImage()
-        except BaseException:
-            return "Camera not in evaluation state", 400
+        image = r.get(str(id) + '-raw')
+        
+        if image is None:
+            return "Camera image not found", 400
 
         matrix, pixel_per_meter = calibrate(image, id, distance)
 
@@ -201,39 +201,6 @@ class CamerasId(Resource):
 
         else:
             return "Camera doesn't exists", 404
-        
-@ api.route('/<int:id>/details')
-class CamerasDetails(Resource):
-    @ jwt_required()
-    def get(self, id):
-        eventExists = db.session.query(Event).filter_by(e_id=id).first()
-
-        if eventExists is not None:
-            if eventExists.e_u_user != int(
-                    get_jwt_identity()['user_id']) and not get_jwt_identity()['admin']:
-                return "Not allowed", 405
-
-            # eventHasCameras = db.session.query(
-            #     db.session.query(Camera).filter_by(c_e_event=id).filter(
-            #         Camera.c_id.in_(tuple(schedules.keys()))).exists()
-            # ).scalar()
-
-            # if eventHasCameras is not False:
-            if not get_jwt_identity()['admin']:
-                cameras = db.session.query(Camera).filter_by(
-                    c_e_event=id).filter(
-                    Camera.c_id.in_(
-                        tuple(
-                            schedules.keys()))).all()
-            else:
-                cameras = db.session.query(Camera).filter_by(
-                    c_e_event=id).all()
-            if cameras is not None:
-                return jsonify({'cameras': [i.data for i in cameras]})
-            else:
-                return "Not found", 404
-        else:
-            return "Event not found", 400
 
 
 def calibrate(image, id, distance):

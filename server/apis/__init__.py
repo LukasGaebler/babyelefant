@@ -5,6 +5,7 @@ from apis.Camera import api as camera
 from apis.Event import api as event
 from apis.DistanceData import api as distance
 from apis.Admin import api as admin
+from apis.Ressources import api as ressources
 
 api = Api(
     title='Babyelefant API',
@@ -19,3 +20,4 @@ api.add_namespace(camera, path='/api/cameras')
 api.add_namespace(event, path="/api/events")
 api.add_namespace(distance, path="/api/distanceData")
 api.add_namespace(admin, path="/api/admin")
+api.add_namespace(ressources, path="/api")

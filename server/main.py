@@ -32,13 +32,9 @@ from PIL import Image
 import redis
 from numpy import ndarray
 
-from dotenv import load_dotenv
-load_dotenv()
 
 
-db = model.db
-bcrypt = model.bcrypt
-schedules = model.schedules
+
 
 # image_hub = imagezmq.ImageHub()
 
@@ -57,26 +53,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['JWT_TOKEN_LOCATION'] = ['query_string', 'headers']
 
 
-class InterceptHandler(logging.Handler):
-    def emit(self, record):
-        # Retrieve context where the logging call occurred, this happens to be in the 6th frame upward
-        logger_opt = logger.opt(depth=6, exception=record.exc_info)
-        logger_opt.log(record.levelno, record.getMessage())
 
 
-handler = InterceptHandler()
-handler.setLevel(0)
-app.logger.addHandler(handler)
 
 
-class DecimalEncoder(flask.json.JSONEncoder):
-
-    def default(self, obj):
-        if isinstance(obj, decimal.Decimal):
-            return float(obj)
-        if isinstance(obj,ndarray):
-            return obj.tolist()
-        return super(DecimalEncoder, self).default(obj)
 
 
 app.json_encoder = DecimalEncoder
@@ -142,6 +122,7 @@ def analyze():
     for id, file in request.files.items():
         f = file.read()
         imgs[str(id)] = f
+        r.set(str(id) + '-raw', f)
     
     evaluateImage(imgs,r)
         
