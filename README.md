@@ -16,3 +16,5 @@ To start an example project, the following command should be executed:
 ```shell
 docker-compose up
 ```
+
+The web interface can then be accessed via: babyelefant.localhost
