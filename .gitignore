@@ -1,2 +1,6 @@
 server/test.py
 .vscode
+*/__pycache__
+*/logs
+.pytest_cache
+.vscode
