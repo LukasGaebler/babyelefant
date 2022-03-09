@@ -8,6 +8,7 @@ import os
 from torch.optim.lr_scheduler import MultiStepLR, ReduceLROnPlateau
 from tensorboardX import SummaryWriter
 from tqdm import tqdm
+import math
 from ai.scalenet_calibration.model_RCNN_only import RCNN_only
 from ai.scalenet_calibration.utils.compute_vectors import generate_field
 from ai.scalenet_calibration.utils.config import cfg
@@ -116,7 +117,7 @@ def calibration(cv2_image):
     w, h,c = cv2_image.shape
     f_pix = h / 2. / np.tan(vfov / 2.)
 
-    print(pitch,roll,vfov)
+    print(math.degrees(pitch),math.degrees(roll),math.degrees(vfov), f_pix)
 
     sensor_size = 24 
     f_pix / h * sensor_size
@@ -127,4 +128,4 @@ def calibration(cv2_image):
     scaled_overhead_hmatrix, target_dim = get_scaled_homography(
         overhead_hmatrix, 1080 * 2, est_range_u, est_range_v)
 
-    return scaled_overhead_hmatrix
+    return scaled_overhead_hmatrix, target_dim

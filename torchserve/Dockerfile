@@ -6,6 +6,7 @@ RUN apt-get update
 RUN apt-get install -y libgl1-mesa-glx
 RUN apt-get install -y libglib2.0-0
 RUN apt-get install -y python3-distutils
+RUN chmod -R 777 /home/venv
 
 USER model-server
 RUN pip3 install --upgrade pip
