@@ -4,3 +4,4 @@ server/test.py
 */logs
 .pytest_cache
 .vscode
+*/__pycache__
