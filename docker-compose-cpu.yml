@@ -3,7 +3,7 @@ services:
     server-cpu :
         build: 
             context: './server'
-            dockerfile: Dockerfile-cpu
+            dockerfile: Dockerfile-gpu
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.backend.rule=Host(`backend.localhost`)"

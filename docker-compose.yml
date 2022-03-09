@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-    server :
+    server:
         build: ./server/
         labels:
             - "traefik.enable=true"
@@ -14,8 +14,10 @@ services:
             - PYTHONUNBUFFERED=1
         depends_on:
             - "db"
+            - "torchserve"
+            - "redis"
         devices:
-            - "/dev/video2:/dev/video0"
+            - "/dev/video0:/dev/video0"
         runtime: nvidia
     db:
         image: 'postgres:alpine'
@@ -33,7 +35,7 @@ services:
             - "traefik.http.routers.frontend.rule=Host(`babyelefant.localhost`)"
             - "traefik.http.routers.frontend.entrypoints=web"
         environment:
-            - VUE_APP_API_URL=http://server:8000/api
+            - VUE_APP_API_URL=http://backend.localhost/api
     traefik:
         image: "traefik:v2.5"
         container_name: "traefik"
@@ -47,3 +49,17 @@ services:
           - "80:80"
         volumes:
           - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    torchserve:
+        build: './torchserve/'
+        ports:
+            - "8080:8080"
+            - "7070:7070"
+    redis:
+        image: redis
+        ports:
+            - "6379:6379"
+    client:
+        build: './imageClient/'
+        depends_on:
+          - server
+

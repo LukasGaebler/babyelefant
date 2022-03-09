@@ -1,11 +1,11 @@
-FROM pytorch/pytorch:1.9.0-cuda10.2-cudnn7-runtime
+FROM python:3.9.7-buster
 
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y python3-opencv
 RUN apt-get -o Dpkg::Options::="--force-confmiss" install --reinstall netbase
 
-COPY requirements.txt requirements.txt
+COPY requirements-cpu.txt requirements.txt
 RUN python3 -m pip install -r requirements.txt
 
 COPY . .
@@ -13,4 +13,5 @@ COPY . .
 RUN usermod -a -G video root
 
 EXPOSE 8000
-CMD [ "python3","-u", "main.py"]
+CMD ["gunicorn", "-w", "4", "--bind", "0.0.0.0:8000", "run:app"]      
+##CMD [ "python3","-u", "run.py"]

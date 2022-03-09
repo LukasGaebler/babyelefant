@@ -1,0 +1,1 @@
+torchserve --start --ncs --model-store model_store --models scalenet.mar yolov5.mar
