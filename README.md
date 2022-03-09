@@ -18,3 +18,6 @@ docker-compose up
 ```
 
 The web interface can then be accessed via: babyelefant.localhost
+
+Username: admin
+Password: 1234
