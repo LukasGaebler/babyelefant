@@ -1,0 +1,12 @@
+2022-01-09T12:26:12,089 - HandlerTime.Milliseconds:160.27|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:5b8dbf17-c77f-40ae-8db8-09fab685815c,timestamp:1641727572
+2022-01-09T12:26:12,106 - PredictionTime.Milliseconds:160.41|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:5b8dbf17-c77f-40ae-8db8-09fab685815c,timestamp:1641727572
+2022-01-09T12:27:40,495 - HandlerTime.Milliseconds:163.41|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:fa74318b-efc6-4f8d-afc1-c29a86a3bfe7,timestamp:1641727660
+2022-01-09T12:27:40,498 - PredictionTime.Milliseconds:163.52|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:fa74318b-efc6-4f8d-afc1-c29a86a3bfe7,timestamp:1641727660
+2022-01-09T12:28:01,608 - HandlerTime.Milliseconds:285.02|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:494c448d-0fc3-4f0b-a607-10cacc6a8159,timestamp:1641727681
+2022-01-09T12:28:01,608 - PredictionTime.Milliseconds:285.12|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:494c448d-0fc3-4f0b-a607-10cacc6a8159,timestamp:1641727681
+2022-01-09T12:28:41,770 - HandlerTime.Milliseconds:439.5|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:311a9b35-6431-4c16-bf3e-18c4a09d7640,timestamp:1641727721
+2022-01-09T12:28:41,771 - PredictionTime.Milliseconds:439.64|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:311a9b35-6431-4c16-bf3e-18c4a09d7640,timestamp:1641727721
+2022-01-09T12:29:46,077 - HandlerTime.Milliseconds:369.46|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:90eee15b-2f7e-4ed7-ace7-17ad07e6f020,timestamp:1641727786
+2022-01-09T12:29:46,079 - PredictionTime.Milliseconds:369.54|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:90eee15b-2f7e-4ed7-ace7-17ad07e6f020,timestamp:1641727786
+2022-01-09T12:29:51,897 - HandlerTime.Milliseconds:96.85|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:3eed8676-414b-4ac6-9da3-8368df7fafe1,timestamp:1641727791
+2022-01-09T12:29:51,898 - PredictionTime.Milliseconds:96.99|#ModelName:yolov5,Level:Model|#hostname:pressler-dell,requestID:3eed8676-414b-4ac6-9da3-8368df7fafe1,timestamp:1641727791

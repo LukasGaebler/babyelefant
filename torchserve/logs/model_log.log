@@ -1,0 +1,729 @@
+2022-01-09T11:41:40,929 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T11:41:40,932 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]57422
+2022-01-09T11:41:40,943 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T11:41:40,944 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T11:41:40,974 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T11:41:41,095 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T11:41:41,321 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T11:41:41,322 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]57435
+2022-01-09T11:41:41,323 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T11:41:41,324 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T11:41:41,332 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T11:41:41,416 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T11:41:46,993 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T11:41:46,994 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T11:41:47,040 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T11:41:47,042 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T11:41:47,502 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T11:41:47,504 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T11:41:47,506 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T11:41:47,508 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T11:41:47,509 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/a9ba2de5d2ee40db915896fd7fac0adc/yolov5s.pt loaded successfully
+2022-01-09T11:42:14,222 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641724934
+2022-01-09T11:42:14,462 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - tensor([[1318.59924,  203.64111, 1585.54492,  759.35504],
+2022-01-09T11:42:14,463 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [ 508.02631,  266.97983,  715.44958,  886.97882],
+2022-01-09T11:42:14,465 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [ 915.31384,  288.95682, 1022.94250,  462.12167],
+2022-01-09T11:42:14,465 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [1288.83057,  170.32613, 1459.75818,  292.86652],
+2022-01-09T11:42:14,466 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [1198.20520,  264.37381, 1331.99744,  511.24484],
+2022-01-09T11:42:14,467 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [ 506.21530,  243.98222,  592.34570,  321.41556],
+2022-01-09T11:42:14,467 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [1528.31519,  383.71832, 1693.92505,  556.65479],
+2022-01-09T11:42:14,473 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [   9.94417,  182.75980,  116.38648,  254.74619],
+2022-01-09T11:42:14,474 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [1642.52563,  307.39008, 1750.79846,  380.56555],
+2022-01-09T11:42:14,474 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [1602.39478,  377.57782, 1725.39185,  544.04309],
+2022-01-09T11:42:14,475 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [ 660.53363,  287.25793,  759.11249,  335.33014],
+2022-01-09T11:42:14,475 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [  10.94354,  183.42285,  117.14539,  254.28714],
+2022-01-09T11:42:14,475 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [ 426.42984,  257.66620,  515.22424,  364.65668]], device='cuda:0')
+2022-01-09T11:42:14,476 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - tensor([[ 559.15881,  305.92285,  634.93896,  386.12317],
+2022-01-09T11:42:14,476 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [1481.50989,  227.25751, 1542.32336,  289.98309]], device='cuda:0')
+2022-01-09T11:42:14,477 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - tensor([[0.00000, 0.04726, 0.00000, 0.00000, 0.00000, 0.04203, 0.00000, 0.00000, 0.00000, 0.00000, 0.00000, 0.00000, 0.00000],
+2022-01-09T11:42:14,477 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [0.02571, 0.00000, 0.00000, 0.00000, 0.00000, 0.00000, 0.00000, 0.00000, 0.00000, 0.00000, 0.00000, 0.00000, 0.00000]], device='cuda:0')
+2022-01-09T11:42:14,477 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - tensor([1, 0], device='cuda:0')
+2022-01-09T11:42:14,478 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model: yolov5, Invalid return type: <class 'NoneType'>.
+2022-01-09T11:53:03,599 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T11:53:03,600 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]60457
+2022-01-09T11:53:03,601 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T11:53:03,605 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T11:53:03,736 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T11:53:03,776 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T11:53:05,131 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T11:53:05,132 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]60473
+2022-01-09T11:53:05,133 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T11:53:05,133 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T11:53:05,136 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T11:53:05,169 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T11:53:09,017 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T11:53:09,023 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T11:53:09,056 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T11:53:09,056 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T11:53:09,636 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding NMS... 
+2022-01-09T11:53:09,637 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T11:53:09,638 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T11:53:09,638 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T11:53:09,639 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T11:53:09,639 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/eec387e30ae74b36a1943cf46885a098/yolov5s.pt loaded successfully
+2022-01-09T11:53:10,246 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641725590
+2022-01-09T11:53:10,406 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Invoking custom service failed.
+2022-01-09T11:53:10,407 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T11:53:10,416 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/service.py", line 102, in predict
+2022-01-09T11:53:10,417 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     ret = self._entry_point(input_batch, self.context)
+2022-01-09T11:53:10,418 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/eec387e30ae74b36a1943cf46885a098/torchserve_handler.py", line 108, in handle
+2022-01-09T11:53:10,418 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     predictions = self.model(data_preprocess)
+2022-01-09T11:53:10,418 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/home/pressler/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+2022-01-09T11:53:10,433 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     return forward_call(*input, **kwargs)
+2022-01-09T11:53:10,435 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/eec387e30ae74b36a1943cf46885a098/models/common.py", line 257, in forward
+2022-01-09T11:53:10,436 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     y = non_max_suppression(
+2022-01-09T11:53:10,436 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/eec387e30ae74b36a1943cf46885a098/utils/general.py", line 487, in non_max_suppression
+2022-01-09T11:53:10,436 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     nc = prediction.shape[2] - 5  # number of classes
+2022-01-09T11:53:10,455 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - IndexError: tuple index out of range
+2022-01-09T12:01:18,603 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:01:18,604 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]63012
+2022-01-09T12:01:18,604 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:01:18,604 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:01:18,725 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:01:18,826 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:01:20,111 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:01:20,112 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]63039
+2022-01-09T12:01:20,112 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:01:20,113 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:01:20,114 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:01:20,156 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:01:25,885 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:01:25,886 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:01:25,921 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:01:25,921 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:01:26,427 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding NMS... 
+2022-01-09T12:01:26,428 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:01:26,428 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:01:26,428 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T12:01:26,434 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:01:26,434 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/eab0c2989c7f4cb5bad1cd1670bf8cb8/yolov5s.pt loaded successfully
+2022-01-09T12:01:26,447 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641726086
+2022-01-09T12:01:26,609 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Invoking custom service failed.
+2022-01-09T12:01:26,609 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:01:26,610 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/service.py", line 102, in predict
+2022-01-09T12:01:26,610 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     ret = self._entry_point(input_batch, self.context)
+2022-01-09T12:01:26,610 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/eab0c2989c7f4cb5bad1cd1670bf8cb8/torchserve_handler.py", line 108, in handle
+2022-01-09T12:01:26,610 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     predictions = self.model(data_preprocess)
+2022-01-09T12:01:26,611 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/home/pressler/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+2022-01-09T12:01:26,611 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     return forward_call(*input, **kwargs)
+2022-01-09T12:01:26,612 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/eab0c2989c7f4cb5bad1cd1670bf8cb8/models/common.py", line 256, in forward
+2022-01-09T12:01:26,612 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     y = self.model(x, augment, profile)[0]  # forward
+2022-01-09T12:01:26,613 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/home/pressler/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+2022-01-09T12:01:26,613 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     return forward_call(*input, **kwargs)
+2022-01-09T12:01:26,613 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/eab0c2989c7f4cb5bad1cd1670bf8cb8/models/yolo.py", line 134, in forward
+2022-01-09T12:01:26,613 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     return self.forward_once(x, profile)
+2022-01-09T12:01:26,613 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/eab0c2989c7f4cb5bad1cd1670bf8cb8/models/yolo.py", line 152, in forward_once
+2022-01-09T12:01:26,614 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     x = m(x)  # run
+2022-01-09T12:01:26,614 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/home/pressler/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+2022-01-09T12:01:26,616 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     return forward_call(*input, **kwargs)
+2022-01-09T12:01:26,620 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/eab0c2989c7f4cb5bad1cd1670bf8cb8/models/common.py", line 176, in forward
+2022-01-09T12:01:26,623 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     return non_max_suppression(
+2022-01-09T12:01:26,628 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/eab0c2989c7f4cb5bad1cd1670bf8cb8/utils/general.py", line 487, in non_max_suppression
+2022-01-09T12:01:26,632 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     prediction = prediction.pred
+2022-01-09T12:01:26,638 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - AttributeError: 'Tensor' object has no attribute 'pred'
+2022-01-09T12:02:33,804 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:02:33,820 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]63475
+2022-01-09T12:02:33,831 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:02:33,833 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:02:33,979 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:02:34,050 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:02:35,334 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:02:35,335 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]63492
+2022-01-09T12:02:35,335 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:02:35,335 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:02:35,342 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:02:35,366 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:02:40,166 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:02:40,167 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:02:40,195 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:02:40,196 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:02:40,708 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding NMS... 
+2022-01-09T12:02:40,708 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:02:40,708 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:02:40,708 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T12:02:40,712 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:02:40,712 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/9e2336e9a1404de28c15f5d19a56460c/yolov5s.pt loaded successfully
+2022-01-09T12:02:40,723 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641726160
+2022-01-09T12:02:40,852 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - tensor([[[4.88627e+00, 4.70502e+00, 8.60011e+00,  ..., 1.13483e-03, 1.03445e-03, 1.57132e-03],
+2022-01-09T12:02:40,854 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -          [1.28531e+01, 3.73211e+00, 2.46558e+01,  ..., 1.17892e-03, 1.10640e-03, 1.36077e-03],
+2022-01-09T12:02:40,855 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -          [1.87653e+01, 4.44659e+00, 3.28578e+01,  ..., 7.91619e-04, 7.89796e-04, 1.22634e-03],
+2022-01-09T12:02:40,857 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -          ...,
+2022-01-09T12:02:40,859 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -          [5.60306e+02, 3.70196e+02, 2.41535e+02,  ..., 2.52675e-03, 1.15087e-03, 1.81743e-03],
+2022-01-09T12:02:40,867 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -          [5.80544e+02, 3.61531e+02, 1.48600e+02,  ..., 2.63996e-03, 1.42779e-03, 3.01391e-03],
+2022-01-09T12:02:40,868 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -          [6.10032e+02, 3.68001e+02, 1.48255e+02,  ..., 2.87836e-03, 1.18944e-03, 2.14180e-03]]], device='cuda:0')
+2022-01-09T12:02:40,869 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - tensor([[4.39533e+02, 7.98804e+01, 5.28515e+02, 2.65118e+02, 9.11163e-01, 0.00000e+00],
+2022-01-09T12:02:40,873 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [1.69342e+02, 1.00993e+02, 2.38483e+02, 3.07660e+02, 9.02362e-01, 0.00000e+00],
+2022-01-09T12:02:40,873 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [3.05105e+02, 1.08319e+02, 3.40981e+02, 1.66041e+02, 8.17463e-01, 5.60000e+01],
+2022-01-09T12:02:40,874 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [4.29610e+02, 6.87754e+01, 4.86586e+02, 1.09622e+02, 6.95550e-01, 6.20000e+01],
+2022-01-09T12:02:40,874 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [3.99402e+02, 1.00125e+02, 4.43999e+02, 1.82415e+02, 6.49064e-01, 5.60000e+01],
+2022-01-09T12:02:40,874 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [1.68738e+02, 9.33274e+01, 1.97449e+02, 1.19139e+02, 4.56054e-01, 6.20000e+01],
+2022-01-09T12:02:40,875 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [5.09438e+02, 1.39906e+02, 5.64642e+02, 1.97552e+02, 4.12818e-01, 5.60000e+01],
+2022-01-09T12:02:40,876 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [3.31472e+00, 7.29199e+01, 3.87955e+01, 9.69154e+01, 4.10264e-01, 6.30000e+01],
+2022-01-09T12:02:40,903 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [5.47509e+02, 1.14463e+02, 5.83599e+02, 1.38855e+02, 4.05233e-01, 5.60000e+01],
+2022-01-09T12:02:40,908 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [5.34132e+02, 1.37859e+02, 5.75131e+02, 1.93348e+02, 3.05852e-01, 5.60000e+01],
+2022-01-09T12:02:40,914 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [2.20178e+02, 1.07753e+02, 2.53037e+02, 1.23777e+02, 2.80224e-01, 5.60000e+01],
+2022-01-09T12:02:40,917 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [3.64785e+00, 7.31410e+01, 3.90485e+01, 9.67624e+01, 2.66547e-01, 6.20000e+01],
+2022-01-09T12:02:40,918 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [1.42143e+02, 9.78887e+01, 1.71741e+02, 1.33552e+02, 2.63227e-01, 6.20000e+01]], device='cuda:0')
+2022-01-09T12:02:40,919 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Invoking custom service failed.
+2022-01-09T12:02:40,920 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:02:40,921 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/service.py", line 102, in predict
+2022-01-09T12:02:40,922 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     ret = self._entry_point(input_batch, self.context)
+2022-01-09T12:02:40,923 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/9e2336e9a1404de28c15f5d19a56460c/torchserve_handler.py", line 108, in handle
+2022-01-09T12:02:40,924 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     predictions = self.model(data_preprocess)
+2022-01-09T12:02:40,924 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/home/pressler/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+2022-01-09T12:02:40,925 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     return forward_call(*input, **kwargs)
+2022-01-09T12:02:40,925 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/9e2336e9a1404de28c15f5d19a56460c/models/common.py", line 257, in forward
+2022-01-09T12:02:40,925 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     y = non_max_suppression(
+2022-01-09T12:02:40,926 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/9e2336e9a1404de28c15f5d19a56460c/utils/general.py", line 489, in non_max_suppression
+2022-01-09T12:02:40,927 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     nc = prediction.shape[2] - 5  # number of classes
+2022-01-09T12:02:40,927 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - IndexError: tuple index out of range
+2022-01-09T12:03:37,367 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:03:37,368 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]63775
+2022-01-09T12:03:37,368 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:03:37,368 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:03:37,484 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:03:37,526 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:03:50,900 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:03:50,901 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]63930
+2022-01-09T12:03:50,902 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:03:50,903 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:03:51,038 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:03:51,123 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:03:52,801 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:03:52,802 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]63955
+2022-01-09T12:03:52,802 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:03:52,802 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:03:52,804 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:03:52,833 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:03:58,130 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:03:58,133 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:03:58,152 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:03:58,152 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:03:58,650 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding NMS... 
+2022-01-09T12:03:58,650 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:03:58,651 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:03:58,651 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T12:03:58,663 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:03:58,665 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/10f81c11b50f44998a54d40076a229ce/yolov5s.pt loaded successfully
+2022-01-09T12:03:58,674 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641726238
+2022-01-09T12:03:58,804 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - torch.Size([1, 15120, 85])
+2022-01-09T12:03:58,807 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - torch.Size([13, 6])
+2022-01-09T12:03:58,810 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Invoking custom service failed.
+2022-01-09T12:03:58,810 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:03:58,810 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/service.py", line 102, in predict
+2022-01-09T12:03:58,810 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     ret = self._entry_point(input_batch, self.context)
+2022-01-09T12:03:58,811 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/10f81c11b50f44998a54d40076a229ce/torchserve_handler.py", line 108, in handle
+2022-01-09T12:03:58,811 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     predictions = self.model(data_preprocess)
+2022-01-09T12:03:58,823 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/home/pressler/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+2022-01-09T12:03:58,824 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     return forward_call(*input, **kwargs)
+2022-01-09T12:03:58,824 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/10f81c11b50f44998a54d40076a229ce/models/common.py", line 257, in forward
+2022-01-09T12:03:58,824 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     y = non_max_suppression(
+2022-01-09T12:03:58,824 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/10f81c11b50f44998a54d40076a229ce/utils/general.py", line 489, in non_max_suppression
+2022-01-09T12:03:58,824 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     nc = prediction.shape[2] - 5  # number of classes
+2022-01-09T12:03:58,825 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - IndexError: tuple index out of range
+2022-01-09T12:05:12,112 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:05:12,124 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]64371
+2022-01-09T12:05:12,141 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:05:12,143 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:05:12,439 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:05:12,549 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:05:13,811 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:05:13,812 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]64398
+2022-01-09T12:05:13,812 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:05:13,813 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:05:13,815 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:05:13,841 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:05:18,916 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:05:18,917 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:05:18,942 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:05:18,944 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:05:19,411 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding NMS... 
+2022-01-09T12:05:19,412 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:05:19,413 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:05:19,414 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T12:05:19,415 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:05:19,416 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/6d2b807aaeee4df5b261298c03001f56/yolov5s.pt loaded successfully
+2022-01-09T12:05:19,423 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641726319
+2022-01-09T12:05:19,550 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Invoking custom service failed.
+2022-01-09T12:05:19,554 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:05:19,556 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/service.py", line 102, in predict
+2022-01-09T12:05:19,559 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     ret = self._entry_point(input_batch, self.context)
+2022-01-09T12:05:19,559 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/6d2b807aaeee4df5b261298c03001f56/torchserve_handler.py", line 108, in handle
+2022-01-09T12:05:19,559 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     predictions = self.model(data_preprocess)
+2022-01-09T12:05:19,560 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/home/pressler/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+2022-01-09T12:05:19,567 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     return forward_call(*input, **kwargs)
+2022-01-09T12:05:19,568 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/6d2b807aaeee4df5b261298c03001f56/models/common.py", line 265, in forward
+2022-01-09T12:05:19,569 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     scale_coords(shape1, y[i][:, :4], shape0[i])
+2022-01-09T12:05:19,570 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - IndexError: too many indices for tensor of dimension 1
+2022-01-09T12:11:57,009 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:11:57,010 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]66358
+2022-01-09T12:11:57,012 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:11:57,018 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:11:57,107 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:11:57,167 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:11:58,236 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:11:58,237 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]66382
+2022-01-09T12:11:58,237 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:11:58,238 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:11:58,240 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:11:58,268 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:12:03,399 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:12:03,400 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:12:03,422 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:12:03,423 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:12:03,429 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend worker process died.
+2022-01-09T12:12:03,438 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:12:03,440 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in <module>
+2022-01-09T12:12:03,443 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     worker.run_server()
+2022-01-09T12:12:03,447 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 161, in run_server
+2022-01-09T12:12:03,450 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2022-01-09T12:12:03,454 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 123, in handle_connection
+2022-01-09T12:12:03,463 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2022-01-09T12:12:03,469 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 95, in load_model
+2022-01-09T12:12:03,473 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service = model_loader.load(model_name, model_dir, handler, gpu,
+2022-01-09T12:12:03,479 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_loader.py", line 112, in load
+2022-01-09T12:12:03,485 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     initialize_fn(service.context)
+2022-01-09T12:12:03,492 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/7e9ca4d84fc24b7d99d0de5466835660/torchserve_handler.py", line 51, in initialize
+2022-01-09T12:12:03,493 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.model = attempt_load(model_pt_path, map_location=self.device).autoshape([0])
+2022-01-09T12:12:03,498 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - TypeError: autoshape() takes 1 positional argument but 2 were given
+2022-01-09T12:12:05,980 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:12:05,982 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]66447
+2022-01-09T12:12:05,983 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:12:05,985 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:12:05,996 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:12:06,037 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:12:12,100 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:12:12,101 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:12:12,132 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:12:12,132 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:12:12,137 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend worker process died.
+2022-01-09T12:12:12,138 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:12:12,138 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in <module>
+2022-01-09T12:12:12,139 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     worker.run_server()
+2022-01-09T12:12:12,139 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 161, in run_server
+2022-01-09T12:12:12,140 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2022-01-09T12:12:12,140 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 123, in handle_connection
+2022-01-09T12:12:12,140 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2022-01-09T12:12:12,140 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 95, in load_model
+2022-01-09T12:12:12,140 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service = model_loader.load(model_name, model_dir, handler, gpu,
+2022-01-09T12:12:12,141 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_loader.py", line 112, in load
+2022-01-09T12:12:12,141 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     initialize_fn(service.context)
+2022-01-09T12:12:12,141 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/7e9ca4d84fc24b7d99d0de5466835660/torchserve_handler.py", line 51, in initialize
+2022-01-09T12:12:12,141 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.model = attempt_load(model_pt_path, map_location=self.device).autoshape([0])
+2022-01-09T12:12:12,141 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - TypeError: autoshape() takes 1 positional argument but 2 were given
+2022-01-09T12:12:14,729 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:12:14,731 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]66502
+2022-01-09T12:12:14,732 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:12:14,735 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:12:14,743 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:12:14,801 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:12:21,031 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:12:21,032 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:12:21,055 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:12:21,056 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:12:21,059 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend worker process died.
+2022-01-09T12:12:21,059 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:12:21,060 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in <module>
+2022-01-09T12:12:21,060 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     worker.run_server()
+2022-01-09T12:12:21,060 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 161, in run_server
+2022-01-09T12:12:21,061 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2022-01-09T12:12:21,062 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 123, in handle_connection
+2022-01-09T12:12:21,062 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2022-01-09T12:12:21,066 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 95, in load_model
+2022-01-09T12:12:21,066 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service = model_loader.load(model_name, model_dir, handler, gpu,
+2022-01-09T12:12:24,310 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:12:24,311 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]66558
+2022-01-09T12:12:24,311 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:12:24,312 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:12:24,315 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:12:24,367 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:12:46,738 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:12:46,739 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]66764
+2022-01-09T12:12:46,739 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:12:46,743 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:12:46,834 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:12:46,881 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:12:47,969 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:12:47,972 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]66788
+2022-01-09T12:12:47,973 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:12:47,975 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:12:47,977 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:12:48,004 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:12:52,966 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:12:52,970 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:12:52,989 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:12:52,989 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:12:52,992 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend worker process died.
+2022-01-09T12:12:52,993 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:12:52,993 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in <module>
+2022-01-09T12:12:52,993 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     worker.run_server()
+2022-01-09T12:12:52,994 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 161, in run_server
+2022-01-09T12:12:52,995 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2022-01-09T12:12:53,001 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 123, in handle_connection
+2022-01-09T12:12:53,002 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2022-01-09T12:12:53,003 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 95, in load_model
+2022-01-09T12:12:53,003 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service = model_loader.load(model_name, model_dir, handler, gpu,
+2022-01-09T12:12:53,011 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_loader.py", line 112, in load
+2022-01-09T12:12:53,020 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     initialize_fn(service.context)
+2022-01-09T12:12:53,022 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/113541f89032406b85f32dfd7eafccd2/torchserve_handler.py", line 51, in initialize
+2022-01-09T12:12:53,025 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.model = attempt_load(model_pt_path, map_location=self.device).autoshape(classes=[0])
+2022-01-09T12:12:53,026 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - TypeError: autoshape() got an unexpected keyword argument 'classes'
+2022-01-09T12:12:55,299 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:12:55,300 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]66855
+2022-01-09T12:12:55,301 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:12:55,305 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:12:55,310 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:12:55,343 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:13:00,491 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:13:00,493 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:13:00,535 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:13:00,536 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:13:00,540 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend worker process died.
+2022-01-09T12:13:00,543 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:13:00,543 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in <module>
+2022-01-09T12:13:00,556 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     worker.run_server()
+2022-01-09T12:13:00,556 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 161, in run_server
+2022-01-09T12:13:00,556 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2022-01-09T12:13:00,557 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 123, in handle_connection
+2022-01-09T12:13:00,557 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2022-01-09T12:13:00,557 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 95, in load_model
+2022-01-09T12:13:00,557 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service = model_loader.load(model_name, model_dir, handler, gpu,
+2022-01-09T12:13:00,558 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_loader.py", line 112, in load
+2022-01-09T12:13:00,558 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     initialize_fn(service.context)
+2022-01-09T12:13:00,559 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/113541f89032406b85f32dfd7eafccd2/torchserve_handler.py", line 51, in initialize
+2022-01-09T12:13:00,559 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.model = attempt_load(model_pt_path, map_location=self.device).autoshape(classes=[0])
+2022-01-09T12:13:00,559 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - TypeError: autoshape() got an unexpected keyword argument 'classes'
+2022-01-09T12:13:02,728 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:13:02,730 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]66903
+2022-01-09T12:13:02,735 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:13:02,735 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:13:02,745 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:13:02,767 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:13:07,941 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:13:07,943 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:13:07,967 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:13:07,968 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:13:07,973 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend worker process died.
+2022-01-09T12:13:07,974 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:13:07,974 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in <module>
+2022-01-09T12:13:07,975 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     worker.run_server()
+2022-01-09T12:13:07,975 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 161, in run_server
+2022-01-09T12:13:07,976 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2022-01-09T12:13:07,977 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 123, in handle_connection
+2022-01-09T12:13:07,978 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2022-01-09T12:13:07,979 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 95, in load_model
+2022-01-09T12:13:07,980 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service = model_loader.load(model_name, model_dir, handler, gpu,
+2022-01-09T12:13:07,981 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_loader.py", line 112, in load
+2022-01-09T12:13:07,989 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     initialize_fn(service.context)
+2022-01-09T12:13:07,994 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/113541f89032406b85f32dfd7eafccd2/torchserve_handler.py", line 51, in initialize
+2022-01-09T12:13:07,995 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.model = attempt_load(model_pt_path, map_location=self.device).autoshape(classes=[0])
+2022-01-09T12:13:07,996 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - TypeError: autoshape() got an unexpected keyword argument 'classes'
+2022-01-09T12:13:11,228 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:13:11,230 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]66956
+2022-01-09T12:13:11,230 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:13:11,230 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:13:11,234 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:13:11,268 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:13:16,438 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:13:16,439 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:13:16,466 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:13:16,467 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:13:16,471 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend worker process died.
+2022-01-09T12:13:16,471 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:13:16,472 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in <module>
+2022-01-09T12:13:16,472 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     worker.run_server()
+2022-01-09T12:13:16,472 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 161, in run_server
+2022-01-09T12:13:16,473 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2022-01-09T12:13:16,473 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 123, in handle_connection
+2022-01-09T12:13:16,473 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2022-01-09T12:13:16,474 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 95, in load_model
+2022-01-09T12:13:16,474 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service = model_loader.load(model_name, model_dir, handler, gpu,
+2022-01-09T12:13:16,474 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_loader.py", line 112, in load
+2022-01-09T12:13:16,474 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     initialize_fn(service.context)
+2022-01-09T12:13:16,475 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/113541f89032406b85f32dfd7eafccd2/torchserve_handler.py", line 51, in initialize
+2022-01-09T12:13:16,476 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.model = attempt_load(model_pt_path, map_location=self.device).autoshape(classes=[0])
+2022-01-09T12:13:16,476 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - TypeError: autoshape() got an unexpected keyword argument 'classes'
+2022-01-09T12:13:20,641 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:13:20,642 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]67022
+2022-01-09T12:13:20,642 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:13:20,643 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:13:20,646 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:13:20,673 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:13:25,786 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:13:25,789 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:13:25,814 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:13:25,814 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:13:25,818 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend worker process died.
+2022-01-09T12:13:25,819 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:13:25,819 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in <module>
+2022-01-09T12:13:32,085 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:13:32,085 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]67093
+2022-01-09T12:13:32,085 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:13:32,086 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:13:32,089 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:13:32,125 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:13:38,317 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:13:38,320 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:13:38,348 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:13:38,349 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:13:38,353 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend worker process died.
+2022-01-09T12:13:38,353 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:13:38,353 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in <module>
+2022-01-09T12:13:38,354 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     worker.run_server()
+2022-01-09T12:13:38,354 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 161, in run_server
+2022-01-09T12:13:38,354 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2022-01-09T12:13:38,354 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 123, in handle_connection
+2022-01-09T12:13:38,354 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2022-01-09T12:13:38,355 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 95, in load_model
+2022-01-09T12:13:38,355 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service = model_loader.load(model_name, model_dir, handler, gpu,
+2022-01-09T12:13:38,355 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_loader.py", line 112, in load
+2022-01-09T12:13:38,367 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     initialize_fn(service.context)
+2022-01-09T12:13:38,368 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/113541f89032406b85f32dfd7eafccd2/torchserve_handler.py", line 51, in initialize
+2022-01-09T12:13:38,369 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.model = attempt_load(model_pt_path, map_location=self.device).autoshape(classes=[0])
+2022-01-09T12:13:38,369 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - TypeError: autoshape() got an unexpected keyword argument 'classes'
+2022-01-09T12:13:47,851 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:13:47,855 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]67173
+2022-01-09T12:13:47,857 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:13:47,858 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:13:47,867 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:13:47,868 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:13:53,752 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:13:53,753 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:13:53,780 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:13:53,781 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:13:53,785 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend worker process died.
+2022-01-09T12:13:53,787 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:13:53,787 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in <module>
+2022-01-09T12:13:53,787 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     worker.run_server()
+2022-01-09T12:13:53,787 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 161, in run_server
+2022-01-09T12:13:53,787 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2022-01-09T12:13:53,787 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 123, in handle_connection
+2022-01-09T12:13:53,788 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2022-01-09T12:13:53,788 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 95, in load_model
+2022-01-09T12:13:53,788 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service = model_loader.load(model_name, model_dir, handler, gpu,
+2022-01-09T12:13:53,788 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_loader.py", line 112, in load
+2022-01-09T12:13:53,792 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     initialize_fn(service.context)
+2022-01-09T12:13:53,799 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/113541f89032406b85f32dfd7eafccd2/torchserve_handler.py", line 51, in initialize
+2022-01-09T12:14:28,383 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:14:28,384 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]67434
+2022-01-09T12:14:28,385 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:14:28,385 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:14:28,467 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:14:28,521 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:14:29,673 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:14:29,674 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]67455
+2022-01-09T12:14:29,675 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:14:29,675 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:14:29,678 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:14:29,707 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:14:35,738 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:14:35,743 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:14:35,761 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:14:35,762 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:14:35,765 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend worker process died.
+2022-01-09T12:14:35,765 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:14:35,767 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in <module>
+2022-01-09T12:14:35,768 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     worker.run_server()
+2022-01-09T12:14:35,768 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 161, in run_server
+2022-01-09T12:14:35,768 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2022-01-09T12:14:35,768 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 123, in handle_connection
+2022-01-09T12:14:35,769 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2022-01-09T12:14:35,769 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_service_worker.py", line 95, in load_model
+2022-01-09T12:14:35,769 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     service = model_loader.load(model_name, model_dir, handler, gpu,
+2022-01-09T12:14:35,769 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/model_loader.py", line 112, in load
+2022-01-09T12:14:35,769 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     initialize_fn(service.context)
+2022-01-09T12:14:35,770 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/ebc08ee1cf5740febdde43d47ee9a3a6/torchserve_handler.py", line 51, in initialize
+2022-01-09T12:14:35,791 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     self.model = attempt_load(model_pt_path, map_location=self.device).autoshape([0])
+2022-01-09T12:14:35,791 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - TypeError: autoshape() takes 1 positional argument but 2 were given
+2022-01-09T12:14:38,268 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:14:38,272 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]67526
+2022-01-09T12:14:38,273 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:14:38,275 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:14:38,280 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:14:38,337 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:16:15,952 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:16:15,953 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]68026
+2022-01-09T12:16:15,953 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:16:15,953 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:16:16,079 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:16:16,128 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:16:17,480 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:16:17,481 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]68042
+2022-01-09T12:16:17,481 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:16:17,484 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:16:17,484 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:16:17,510 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:16:22,742 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:16:22,746 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:16:22,768 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:16:22,768 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:16:23,225 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:16:23,225 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:16:23,225 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T12:16:23,229 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:16:23,229 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/f8e090cdc9ca49048a1e6315277b489c/yolov5s.pt loaded successfully
+2022-01-09T12:16:23,238 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641726983
+2022-01-09T12:16:23,403 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - tensor([[1318.59924,  203.64111, 1585.54492,  759.35504],
+2022-01-09T12:16:23,403 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [ 508.02631,  266.97983,  715.44958,  886.97882]], device='cuda:0')
+2022-01-09T12:16:23,404 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - tensor([[ 559.15881,  305.92285,  634.93896,  386.12317],
+2022-01-09T12:16:23,404 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [1481.50989,  227.25751, 1542.32336,  289.98309]], device='cuda:0')
+2022-01-09T12:16:23,405 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - tensor([[0.00000, 0.04726],
+2022-01-09T12:16:23,405 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -         [0.02571, 0.00000]], device='cuda:0')
+2022-01-09T12:16:23,405 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - tensor([1, 0], device='cuda:0')
+2022-01-09T12:16:23,406 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model: yolov5, Invalid return type: <class 'NoneType'>.
+2022-01-09T12:17:34,435 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:17:34,437 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]68475
+2022-01-09T12:17:34,437 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:17:34,437 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:17:34,518 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:17:34,562 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:17:35,890 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:17:35,891 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]68494
+2022-01-09T12:17:35,891 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:17:35,891 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:17:35,893 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:17:35,920 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:17:41,718 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:17:41,721 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:17:41,741 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:17:41,744 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:17:42,215 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:17:42,216 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:17:42,217 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T12:17:42,218 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:17:42,221 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/a7d0eafd74f743678e4550ba5c5498f9/yolov5s.pt loaded successfully
+2022-01-09T12:17:42,251 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641727062
+2022-01-09T12:17:42,458 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - 0 tensor(1, device='cuda:0')
+2022-01-09T12:17:42,458 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - 1 tensor(0, device='cuda:0')
+2022-01-09T12:17:42,458 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model: yolov5, Invalid return type: <class 'NoneType'>.
+2022-01-09T12:25:09,633 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:25:09,634 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]69981
+2022-01-09T12:25:09,634 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:25:09,635 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:25:09,709 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:25:09,758 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:25:11,230 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:25:11,237 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]69998
+2022-01-09T12:25:11,240 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:25:11,246 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:25:11,250 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:25:11,314 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:25:16,678 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:25:16,681 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:25:16,697 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:25:16,698 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:25:17,192 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:25:17,192 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:25:17,193 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T12:25:17,195 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:25:17,196 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/0cc30032ddae4ca7ba99c29e2223db9c/yolov5s.pt loaded successfully
+2022-01-09T12:25:17,213 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641727517
+2022-01-09T12:25:17,375 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Invoking custom service failed.
+2022-01-09T12:25:17,376 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:25:17,376 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/service.py", line 102, in predict
+2022-01-09T12:25:17,381 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     ret = self._entry_point(input_batch, self.context)
+2022-01-09T12:25:17,387 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/0cc30032ddae4ca7ba99c29e2223db9c/torchserve_handler.py", line 128, in handle
+2022-01-09T12:25:17,387 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     output = self.postprocess(predictions, masks, result)
+2022-01-09T12:25:17,388 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/0cc30032ddae4ca7ba99c29e2223db9c/torchserve_handler.py", line 152, in postprocess
+2022-01-09T12:25:17,397 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     _retval['class'] = masks.pred[batch_idx][maskToPerson.index(i)][5]
+2022-01-09T12:25:17,398 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - AttributeError: 'Tensor' object has no attribute 'index'
+2022-01-09T12:26:04,932 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:26:04,934 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]70394
+2022-01-09T12:26:04,937 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:26:04,948 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:26:05,158 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:26:05,268 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:26:06,513 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:26:06,514 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]70414
+2022-01-09T12:26:06,514 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:26:06,514 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:26:06,518 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:26:06,546 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:26:11,404 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:26:11,406 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:26:11,426 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:26:11,427 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:26:11,906 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:26:11,909 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:26:11,910 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T12:26:11,910 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:26:11,910 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/c7923a2c215144ed8ed392be784e64df/yolov5s.pt loaded successfully
+2022-01-09T12:26:11,918 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641727571
+2022-01-09T12:26:12,080 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Unable to serialize model output.
+2022-01-09T12:26:12,080 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:26:12,080 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/protocol/otf_message_handler.py", line 130, in create_predict_response
+2022-01-09T12:26:12,080 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     json_value = json.dumps(val, indent=2).encode("utf-8")
+2022-01-09T12:26:12,081 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/json/__init__.py", line 234, in dumps
+2022-01-09T12:26:12,081 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     return cls(
+2022-01-09T12:26:12,081 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/json/encoder.py", line 201, in encode
+2022-01-09T12:26:12,082 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     chunks = list(chunks)
+2022-01-09T12:26:12,082 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/json/encoder.py", line 429, in _iterencode
+2022-01-09T12:26:12,083 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     yield from _iterencode_list(o, _current_indent_level)
+2022-01-09T12:26:12,083 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/json/encoder.py", line 325, in _iterencode_list
+2022-01-09T12:26:12,084 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     yield from chunks
+2022-01-09T12:26:12,084 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/json/encoder.py", line 325, in _iterencode_list
+2022-01-09T12:26:12,084 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     yield from chunks
+2022-01-09T12:26:12,084 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/json/encoder.py", line 405, in _iterencode_dict
+2022-01-09T12:26:12,084 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     yield from chunks
+2022-01-09T12:26:12,084 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/json/encoder.py", line 438, in _iterencode
+2022-01-09T12:26:12,085 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     o = _default(o)
+2022-01-09T12:26:12,085 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/json/encoder.py", line 179, in default
+2022-01-09T12:26:12,085 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     raise TypeError(f'Object of type {o.__class__.__name__} '
+2022-01-09T12:26:12,086 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - TypeError: Object of type Tensor is not JSON serializable
+2022-01-09T12:26:58,247 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:26:58,248 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]70682
+2022-01-09T12:26:58,248 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:26:58,248 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:26:58,326 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:26:58,384 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:27:00,494 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:27:00,495 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]70701
+2022-01-09T12:27:00,496 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:27:00,497 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:27:00,499 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:27:00,529 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:27:05,868 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:27:05,869 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:27:05,894 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:27:05,896 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:27:06,355 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:27:06,356 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:27:06,356 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T12:27:06,359 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:27:06,360 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/90bc2e83ec5f43049e19cdafdb7a5a68/yolov5s.pt loaded successfully
+2022-01-09T12:27:06,370 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641727626
+2022-01-09T12:27:06,531 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Invoking custom service failed.
+2022-01-09T12:27:06,532 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Traceback (most recent call last):
+2022-01-09T12:27:06,532 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/usr/lib/python3.9/site-packages/ts/service.py", line 102, in predict
+2022-01-09T12:27:06,532 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     ret = self._entry_point(input_batch, self.context)
+2022-01-09T12:27:06,533 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/90bc2e83ec5f43049e19cdafdb7a5a68/torchserve_handler.py", line 128, in handle
+2022-01-09T12:27:06,533 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     output = self.postprocess(predictions, masks, result)
+2022-01-09T12:27:06,533 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -   File "/tmp/models/90bc2e83ec5f43049e19cdafdb7a5a68/torchserve_handler.py", line 152, in postprocess
+2022-01-09T12:27:06,533 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG -     _retval['class'] = masks.names[masks.pred[batch_idx][maskToPerson.index(i)][5].item()]
+2022-01-09T12:27:06,535 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - TypeError: list indices must be integers or slices, not float
+2022-01-09T12:27:32,361 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2022-01-09T12:27:32,361 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - [PID]70926
+2022-01-09T12:27:32,362 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:27:32,362 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:27:32,441 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2022-01-09T12:27:32,494 [INFO ] W-9000-scalenet_1.0-stdout MODEL_LOG - model_name: scalenet, batchSize: 1
+2022-01-09T12:27:33,636 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2022-01-09T12:27:33,637 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - [PID]70946
+2022-01-09T12:27:33,638 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Torch worker started.
+2022-01-09T12:27:33,638 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Python runtime: 3.9.9
+2022-01-09T12:27:33,640 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2022-01-09T12:27:33,669 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - model_name: yolov5, batchSize: 1
+2022-01-09T12:27:39,838 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG - /home/pressler/.local/lib/python3.9/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+2022-01-09T12:27:39,839 [WARN ] W-9001-yolov5_0.1-stderr MODEL_LOG -   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+2022-01-09T12:27:39,863 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:27:39,864 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 232 layers, 7459581 parameters, 0 gradients, 17.5 GFLOPS
+2022-01-09T12:27:40,316 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:27:40,316 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Fusing layers... 
+2022-01-09T12:27:40,316 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model Summary: 224 layers, 7056607 parameters, 7056607 gradients, 16.3 GFLOPS
+2022-01-09T12:27:40,324 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Adding autoShape... 
+2022-01-09T12:27:40,328 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Model file /tmp/models/eb76ef13592c40059f80e44050f05796/yolov5s.pt loaded successfully
+2022-01-09T12:27:40,332 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641727660
+2022-01-09T12:28:01,322 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641727681
+2022-01-09T12:28:41,329 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641727721
+2022-01-09T12:29:45,707 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641727785
+2022-01-09T12:29:51,801 [INFO ] W-9001-yolov5_0.1-stdout MODEL_LOG - Backend received inference at: 1641727791
