@@ -18,7 +18,7 @@ services:
             - "redis"
         devices:
             - "/dev/video0:/dev/video0"
-        runtime: nvidia
+ #       runtime: nvidia
     db:
         image: 'postgres:alpine'
         environment:
