@@ -105,7 +105,7 @@ export default {
             localStorage.setItem("admin", user.sub.admin);
             // localStorage.setItem("admin", true); //delete Later
             if(user.sub.admin) {
-              this.$router.push({name: "showUsers"})
+              this.$router.push({name: "dashboard"})
             } else {
               this.$router.push({ name: "dashboard" });
             }
