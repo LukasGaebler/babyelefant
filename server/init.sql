@@ -128,11 +128,14 @@ create view d_distancedataperevent as  SELECT d_distancedata.d_datetime,
 
 INSERT INTO public.u_users
 (u_id, u_name, u_pwd, u_isadmin)
-VALUES(1, 'admin', '$2a$12$wAxP6SHhTfVKTJvXnJliS.3ql7imfi4EsE8tJR0OTXDo2aDrJBp2y', true);
+VALUES(1, 'babyelefant', '$2a$12$wAxP6SHhTfVKTJvXnJliS.3ql7imfi4EsE8tJR0OTXDo2aDrJBp2y', true);
 
 INSERT INTO public.e_events
 (e_id, e_name, e_u_user, e_adress)
 VALUES(1, 'Street view', 1, 'Test 1');
+INSERT INTO public.e_events
+(e_id, e_name, e_u_user, e_adress)
+VALUES(2, 'HTL Spengergasse', 1, 'Test 1');
 
 /* INSERT INTO public.c_cameras
 (c_link, c_e_event, c_homography, c_maxdistance, c_pixelpermeter, c_public, c_downtime_start, c_downtime_end)
@@ -140,3 +143,6 @@ VALUES('https://www.youtube.com/watch?v=PGrq-2mju2s', 1, '{"matrix": [[-5.290478
 INSERT INTO public.c_cameras
 (c_link, c_e_event, c_homography, c_maxdistance, c_pixelpermeter, c_public, c_downtime_start, c_downtime_end)
 VALUES('https://www.youtube.com/watch?v=RQA5RcIZlAM', 1, '{"matrix": [[0.05771778434621434, 0.5908319810460522, -0.0001257312093049082], [0.07848052584723673, 1.1903442117258645, -0.0002832060046981562], [0.00003547530943222285, 0.0005380676134105854, 0.015694877842639343]]}'::jsonb, 4, 3.1281085438109697, false, '20:00', '06:00'); 
+INSERT INTO public.c_cameras
+(c_link, c_e_event, c_homography, c_maxdistance, c_pixelpermeter, c_public, c_downtime_start, c_downtime_end)
+VALUES('https://www.youtube.com/watch?v=RQA5RcIZlAM', 2, '{"matrix": [[0.05771778434621434, 0.5908319810460522, -0.0001257312093049082], [0.07848052584723673, 1.1903442117258645, -0.0002832060046981562], [0.00003547530943222285, 0.0005380676134105854, 0.015694877842639343]]}'::jsonb, 4, 3.1281085438109697, false, '20:00', '06:00'); 
