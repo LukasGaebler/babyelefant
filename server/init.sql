@@ -132,11 +132,11 @@ VALUES(1, 'admin', '$2a$12$wAxP6SHhTfVKTJvXnJliS.3ql7imfi4EsE8tJR0OTXDo2aDrJBp2y
 
 INSERT INTO public.e_events
 (e_id, e_name, e_u_user, e_adress)
-VALUES(1, 'Test', 1, 'Test 1');
+VALUES(1, 'Street view', 1, 'Test 1');
 
 /* INSERT INTO public.c_cameras
 (c_link, c_e_event, c_homography, c_maxdistance, c_pixelpermeter, c_public, c_downtime_start, c_downtime_end)
 VALUES('https://www.youtube.com/watch?v=PGrq-2mju2s', 1, '{"matrix": [[-5.290478678272303e-05, 0.06991421058208373, -1.1505644086773635e-08], [-0.0012537249814707427, 0.5234823163407988, -1.8794378461412196e-08], [-8.847374582763141e-07, 0.000369414680936358, 0.00021879833289292772]]}'::jsonb, 2, 0.1, true, '20:00', '06:00'); */
 INSERT INTO public.c_cameras
 (c_link, c_e_event, c_homography, c_maxdistance, c_pixelpermeter, c_public, c_downtime_start, c_downtime_end)
-VALUES('https://www.youtube.com/watch?v=AdUw5RdyZxI', 1, '{"matrix": [[-5.290478678272303e-05, 0.06991421058208373, -1.1505644086773635e-08], [-0.0012537249814707427, 0.5234823163407988, -1.8794378461412196e-08], [-8.847374582763141e-07, 0.000369414680936358, 0.00021879833289292772]]}'::jsonb, 2, 1, false, '20:00', '06:00'); 
+VALUES('https://www.youtube.com/watch?v=RQA5RcIZlAM', 1, '{"matrix": [[-5.290478678272303e-05, 0.06991421058208373, -1.1505644086773635e-08], [-0.0012537249814707427, 0.5234823163407988, -1.8794378461412196e-08], [-8.847374582763141e-07, 0.000369414680936358, 0.00021879833289292772]]}'::jsonb, 4, 1, false, '20:00', '06:00'); 

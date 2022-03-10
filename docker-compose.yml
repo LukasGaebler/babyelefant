@@ -12,13 +12,15 @@ services:
             - DATABASE_HOST=db
             - DATABASE_TABLE=babyelefant
             - PYTHONUNBUFFERED=1
+        volumes:
+            - './video:/video'
         depends_on:
             - "db"
             - "torchserve"
             - "redis"
         devices:
             - "/dev/video0:/dev/video0"
-        runtime: nvidia
+#        runtime: nvidia
     db:
         image: 'postgres:alpine'
         environment:

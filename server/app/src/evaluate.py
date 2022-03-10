@@ -15,6 +15,7 @@ from app.grpc_client.grpc_client import infer,get_inference_stub
 import json
 from app.model.Camera import Camera
 
+count = 0
 schedules = model.schedules
 db = model.db
 stub = get_inference_stub()
@@ -23,6 +24,7 @@ stub = get_inference_stub()
 calibrationCache = {}
     
 def evaluateImage(imgs,r):
+    global count
     evaluateIds = []
     
     for id, img in imgs.items():
@@ -48,6 +50,9 @@ def evaluateImage(imgs,r):
 
         drawn = PersonDetection.drawBoxes(
             Image.open(io.BytesIO(imgs[str(evaluateIds[i])])), distances, boxes)
+        
+        drawn.save('/video/image' + str(count) + '.jpg')
+        count = count + 1
 
         imgByteArr = io.BytesIO()
         drawn.save(imgByteArr, format=drawn.format)
